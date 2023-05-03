@@ -1,0 +1,203 @@
+
+#about_section{
+    padding: 100px 0;
+    background: #e0e0e0;
+}
+
+.about_title{
+    text-align: center;
+    color: #ec6608;
+    font-size: 50px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    // line-height: 60px;
+    text-transform: uppercase;
+}
+.about_box-pr{
+    color: #8A8A8A;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    // max-width: 800px;
+}
+
+@media only screen and (max-width: 767px){
+.about_title {
+    line-height: 48px!important;
+    font-size: 44px!important;
+}}
+
+.about_content-box{
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}
+
+@media only screen and (max-width: 796px){
+    .about_content-box {
+        gap: 20px;
+    }
+}
+
+.about_left{
+    min-width: 50%;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.about_right{
+    min-width: 50%;
+
+}
+// about left style
+
+.about_left-heading{
+    color: #ec6608;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.about_left-pr{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Lato;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #6e6e6e;
+    max-width: 520px;
+}
+
+.line{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    width: 4px;
+    height: 260px;
+    background-color: #444444;
+    position: relative;
+    span{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        background-color: #ec6608;
+    }
+}
+
+// about right style
+
+.about_right-bg{
+    text-align: left;
+    background-image: url(../../images/renova-why-us.jpg);
+    max-width: 426px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: auto 326 / 190;
+    height: 190px;
+}
+
+.about_bg2{
+    background-image: url(../../images/aboutbgpart.jpg);
+}
+.about_bg4{
+    background-image: url(../../images/about3.jpg);
+}
+.about_bg3{
+    background-image: url(../../images/aboutbg2.jpg);
+}
+// about content 2 
+.about_content2{
+    margin: 0;
+    width: 100%;
+    display: flex;
+    gap: 40px;
+}
+.about_left2{
+    min-width: 50%;
+    text-align: right;
+}
+.about_right2{
+        display: flex;
+        gap: 40px;
+       
+}
+.mobile_line{
+    display: none;
+}
+@media screen and (max-width:768px) {
+    .about_content-box{
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 20px;
+    } 
+    .about_right ,.left_content2{
+      margin: 0 auto;
+    }
+  .desc_line{
+    display: none !important;
+  }
+  .mobile_line{
+    display: flex;
+}
+    .about_left{
+        flex-direction: row-reverse;
+        text-align: left;
+    }
+    .line{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 50px;
+        width: 4px;
+        height: 180px;
+        background-color: #444444;
+        position: relative;
+        span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            background-color: #ec6608;
+        }
+    }
+    .about_content2{
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+    .about_box-pr{
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+}
+@media screen and (max-width:400px) {
+.about_right-bg{
+width: 300px !important;
+margin: 0 auto;
+height: 150px;
+}
+.about_box-pr{
+    font-size: 22px;
+    margin-bottom: 30px; 
+}
+}
+@media screen and (max-width:350px) {
+    .about_right-bg{
+        background-repeat: no-repeat;
+        background-size: contain;
+    width: 280px !important;
+    margin: 0 auto;
+    }
+    }
+
+    @media screen and (max-width:338px) {
+        .about_right-bg{
+        width: 260px !important;
+        }
+        }   
+

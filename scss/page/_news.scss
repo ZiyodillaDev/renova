@@ -1,0 +1,251 @@
+#news_section {
+  padding: 100px 0;
+}
+
+.news_title {
+  // width: 319px;
+  height: 44px;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 36px;
+}
+.last_slick {
+  list-style-type: none;
+}
+.last_slick_item {
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: 370px;
+  width: 100%;
+  height: auto;
+  max-height: 650px;
+
+  margin: 0 auto;
+  background: #e0e0e0;
+  border: 1px solid #999999;
+  backdrop-filter: blur(1px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 20px;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}
+
+.carousel_top_img {
+  max-width: 433px;
+  height: 326px;
+
+  // border: 1px solid #999999;
+  backdrop-filter: blur(1px);
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border-radius: 20px 20px 0px 0px;
+}
+.news_bg1 {
+  background: url(../../images/news1.jpg);
+  background-size: 100%;
+}
+.news_bg2,
+.news_bg4 {
+  background: url(../../images/news2.jpg);
+}
+.news_bg3 {
+  background: url(../../images/renova-why-us.jpg);
+}
+.card_carousel_body {
+  padding: 10px 30px 24px;
+  h4 {
+    max-width: 373px;
+    height: auto;
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  .carousel_card_pr {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 19px;
+    color: rgba(39, 39, 39, 0.7);
+  }
+}
+
+.carousel_card_heading2 {
+  height: 48px;
+  margin-bottom: 15px;
+  color: #ec6608 !important;
+}
+
+.card_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding-bottom: 10px;
+  p {
+    width: 64px;
+    height: auto;
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #ec6608;
+    display: inline-block;
+    margin: 0;
+  }
+
+  span {
+    display: inline-block;
+    height: auto;
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #272727;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .wrapper {
+    width: 403px;
+    height: auto;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    width: 90%;
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .carousel_top_img {
+    max-width: 100%;
+  }
+  .card_carousel_body {
+    padding: 10px 20px 14px;
+
+    h4 {
+      width: 100%;
+    }
+
+    .carousel_card_pr {
+      width: 100%;
+    }
+    .carousel_top_img {
+      max-height: 208px !important;
+      border-radius: 20px 20px 0px 0px;
+    }
+  }
+}
+.our_title {
+  margin-bottom: 40px !important;
+}
+@media screen and (max-width: 400px) {
+  .last_slick {
+    list-style-type: none;
+    padding-left: 1rem;
+  }
+  .wrapper {
+    width: 98%;
+    height: auto;
+  }
+  .card_carousel_body {
+    padding: 10px 7px 0px;
+  }
+}
+// btn next and prev
+
+.news_btn {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+.slider_btn {
+  background-color: rgba($color: #ddd, $alpha: 0.6);
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.2s ease-in-out;
+  width: 50px;
+  height: 50px;
+  backdrop-filter: blur(2px);
+}
+.slider_btn:hover {
+  background-color: rgba($color: #ddd, $alpha: 1);
+}
+.slider_prev {
+  left: -75px;
+}
+.slider_next {
+  right: -75px;
+}
+@media screen and (max-width: 1300px) {
+  .slider_btn {
+    width: 55px;
+    height: 55px;
+  }
+
+  .slider_prev {
+    left: -55px !important;
+  }
+  .slider_next {
+    right: -55px;
+  }
+}
+
+.news_indicator{
+    filter: invert(43%) sepia(75%) saturate(1062%) hue-rotate(354deg) brightness(91%) contrast(103%);
+}
+
+.mycontainer{
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1300px) {
+  .mycontainer{
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+}
+@media screen and (max-width: 1024px) {
+  .mycontainer{
+    max-width: 900px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  .slider_prev {
+    left: -40px !important;
+  }
+  .slider_next {
+    right: -40px;
+  }
+}

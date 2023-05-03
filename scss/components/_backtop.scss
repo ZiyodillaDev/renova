@@ -1,0 +1,25 @@
+.top {
+    position: fixed;
+    right: 25px;
+    bottom: 100px;
+    z-index: 999;
+    background: #ec6608;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    transition: 0.5s;
+  & img {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &:hover{
+    background: #fff;
+    & img{
+      filter: invert(65%) sepia(62%) saturate(7499%) hue-rotate(6deg) brightness(101%) contrast(94%);;
+    }
+  }
+}
