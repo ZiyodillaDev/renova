@@ -53,7 +53,7 @@
                                 <a href="#product_section" class="link3" id="service">Продукты</a>
                                 <a href="#service_section" class="link4" id="work">Услуги</a>
                                 <a href="#news_section" class="link5" id="contact">Новости</a>
-                                <a href="./index.html"><img src="./images/home.png" alt="user"></a>
+                                <a href="./index.html"><img class="w-75" src="./images/home.png" alt="user"></a>
                             </div>
                         </nav>
                         <div class="mobile">
@@ -66,7 +66,8 @@
                                     <li><a href="#product_section" class="link3" id="service">Продукты</a></li>
                                     <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
                                     <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
-                                    <li><a href="./index.html"><img class="user" src="./images/home.png" alt="user"></a>
+                                    <li><a href="./index.html"><img class="user w-75" src="./images/home.png"
+                                                alt="user"></a>
                                     </li>
                                 </ul>
                             </div>
@@ -75,7 +76,7 @@
                 </div>
             </header>
 
-           
+
 
             <div class="offcanvas offcanvas-end end" tabindex="-1" id="offcanvasRight"
                 aria-labelledby="offcanvasRightLabel">
@@ -119,104 +120,126 @@
             </div>
         </div>
         <!-- </div> -->
-        <div class=" pt-5 col-12 all_admin">
+        <div class=" pt-5 mt-5  all_admin">
 
-
-            <div class="text-center allBtn mt-5 pt-5">
-                <button class="btn btn-success js-newsBtn">NEWS</button>
-                <button class="btn btn-primary js-productsBtn">PRODUCT</button>
-            </div>
-            <div class="d-flex mb-5">
-                <div>
-                    <button type="button" class="btn modalbtn btn-primary ms-3 mt-2" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD PRODUCT +</button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content js-form">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+           
+            <div class="d-flex container align-items-start ">
+                <div class="nav flex-column nav-pills me-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active my-3" id="v-pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                        aria-selected="true">Products</button>
+                    <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                        aria-selected="false">News</button>
+                </div>
+                <div class="tab-content " id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab" tabindex="0">
+                        <div class=" mt-1 index_card">
+                            <button type="button" class="btn  modalbtn btn-primary ms-5  mt-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">ADD PRODUCT +</button>
+                            <div class="modal fade mt-5 pt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content js-form">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <input type="text" name="name" class="js-name form-control"
+                                                        placeholder="Name">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <!-- <input type="text" name="desc" class="form-control js-desc"> -->
+                                                    <textarea class="js-desc form-control"
+                                                        placeholder="Description"></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input type="file" name="img" class="js-file form-control">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input class="js-price form-control" type="number"
+                                                        placeholder="Price">
+                                                </div>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" data-bs-dismiss="modal"
+                                                    class="btn btn-primary">Send
+                                                    message</button>
+                                            </form>
+                                        </div>
+    
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="mb-3">
-                                            <input type="text" name="name" class="js-name form-control"
-                                                placeholder="Name">
-                                        </div>
-                                        <div class="mb-3">
-                                            <!-- <input type="text" name="desc" class="form-control js-desc"> -->
-                                            <textarea class="js-desc form-control" placeholder="Description"></textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="file" name="img" class="js-file form-control">
-                                        </div>
-                                        <div class="mb-3">
-                                            <input class="js-price form-control" type="number" placeholder="Price">
-                                        </div>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Send
-                                            message</button>
-                                    </form>
-                                </div>
-                                <!-- <div class="modal-footer">
-                        </div> -->
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div>
-                    <button type="button" class="btn modalbtn btn-primary ms-3 mt-2" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal1" data-bs-whatever="@mdo">ADD NEWS +</button>
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModal1Label"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content js-form">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModal1Label">Add News</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="mb-3">
-                                            <input type="text" name="name" class="js-name form-control"
-                                                placeholder="Title">
-                                        </div>
-                                        <div class="mb-3">
-                                            <!-- <input type="text" name="desc" class="form-control js-desc"> -->
-                                            <textarea class="js-desc form-control" placeholder="Name"></textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="file" name="img" class="js-file form-control">
-                                        </div>
-                                        <div class="mb-3">
-                                            <input class="js-price form-control" type="number" placeholder="Mark">
-                                        </div>
-                                        <div class="mb-3">
-                                            <input class="js-price form-control" type="number" placeholder="Price">
-                                        </div>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" data-bs-dismiss="modal1" class="btn btn-primary">Send
-                                            message</button>
-                                    </form>
-                                </div>
-                                <!-- <div class="modal-footer">
-                        </div> -->
-                            </div>
+                        <div class="d-flex js-list  flex-wrap gap-3">
+    
                         </div>
                     </div>
+                    <div class="tab-pane  fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab" tabindex="0">
+                        <div class="index_card mt-1 ">
+                            <button type="button" class="btn ms-5 modalbtn btn-primary ms-3 mt-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal1" data-bs-whatever="@mdo">ADD NEWS +</button>
+                            <div class="modal fade mt-5 pt-5" id="exampleModal1" tabindex="-1"
+                                aria-labelledby="exampleModal1Label" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content js-form">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModal1Label">Add News</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <input type="text" name="name" class="js-name form-control"
+                                                        placeholder="Title">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <!-- <input type="text" name="desc" class="form-control js-desc"> -->
+                                                    <textarea class="js-desc form-control"
+                                                        placeholder="Name"></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input type="file" name="img" class="js-file form-control">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input class="js-price form-control" type="number"
+                                                        placeholder="Mark">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input class="js-price form-control" type="number"
+                                                        placeholder="Price">
+                                                </div>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" data-bs-dismiss="modal1"
+                                                    class="btn btn-primary">Send
+                                                    message</button>
+                                            </form>
+                                        </div>
+                                        <!-- <div class="modal-footer">
+                                </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex js-listNews flex-wrap gap-3">
+    
+                        </div>
+                    </div>
+    
                 </div>
             </div>
 
-            <div class="d-flex js-list flex-wrap gap-3">
-            </div>
-            <div class="d-flex js-listNews flex-wrap gap-3">
-
-            </div>
+            <!-- <div class="container ms-5 tabs">
+            </div> -->
 
         </div>
     </div>
