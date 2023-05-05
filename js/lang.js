@@ -56,7 +56,6 @@ let service__link3 = document.querySelector(".service__link3");
 let service__link4 = document.querySelector(".service__link4");
 let service__link5 = document.querySelector(".service__link5");
 
-// doors.textContent = "djfkadjfka"
 link.forEach((el) => {
   el.addEventListener("click", () => {
     langs.querySelector(".active").classList.remove("active");
@@ -127,8 +126,6 @@ link.forEach((el) => {
     service__link4.textContent = data[attr].service__link4;
     service__link5.textContent = data[attr].service__link5;
     contacts_desc.textContent = data[attr].contacts_desc;
-    console.log("ishladi");
-    console.log(doors);
   });
 });
 
