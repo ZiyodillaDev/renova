@@ -1436,6 +1436,15 @@ header {
   top: 0 !important;
 }
 
+.tabs {
+  margin-left: 25px !important;
+}
+
+.index_card {
+  z-index: 999;
+  margin-right: auto;
+}
+
 /* modal */
 .overlay {
   z-index: 10;
