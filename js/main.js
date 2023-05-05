@@ -1,10 +1,24 @@
   // Hide lang
+  const elTop =document.querySelector(".top")
+  const elIcons =document.querySelector(".media-icons")
+
   var prevScrollpos = window.pageYOffset;
+  elTop.style.display ="none"
+  const num =686
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
+  console.dir(elIcons.style);
+if(window.pageYOffset >= num){
+  elTop.style.display ="flex"
+  elIcons.style.top ="20%"
+}else{
+  elTop.style.display ="none"
+  elIcons.style.top ="50%"
+}
     if (prevScrollpos > currentScrollPos) {
       let hide = document.querySelectorAll(".header-top");
       let header = document.querySelectorAll("header");
+     
       hide.forEach((el) => {
         el.style.top = "0";
       });

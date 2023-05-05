@@ -11,8 +11,16 @@ footer {
           flex-direction: column;
           gap: 10px;
           padding-top: 25px;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
           & a{
-              font-size: 18px;
+              font-size: 14px;
+              margin: 0;
+              width: auto;
+              font-weight: 500 !important;
+              padding: 10px 0 !important;
+              
+              text-align: left !important;
           }
       }
   }
@@ -67,5 +75,28 @@ footer {
     }
     .contact{
       margin: 0 auto;
+    }
+  }
+
+  .foter_line{
+    height: 2px;
+    min-width: 100%;
+    width: 100%;
+    background-color:#fff;
+    color: #ec6608;
+    margin: 10px 0;
+    margin-bottom: 15px;
+  }
+  .production_box{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    p{
+        font-size: 22px;
+    }
+    span{
+        font-size: 20px;
     }
   }

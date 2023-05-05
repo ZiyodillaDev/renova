@@ -6,8 +6,8 @@ $('.last_slick').slick({
     autoplay: true,
     autoplaySpeed: 1600,
     speed:500,
-  prevArrow: ' <div class=" news_btn slider_btn slider_prev "><img class="news_indicator" src="./images/prev.png" alt="" width="20"></div>',
-  nextArrow: '<div class=" news_btn slider_btn slider_next "><img class="news_indicator" src="./images/next.png" alt="" width="20" ></div>',
+  prevArrow: ' <div class=" news_btn slider_btn slider_prev "><img class="news_indicator" src="./images/prev.png" alt="" width="16"></div>',
+  nextArrow: '<div class=" news_btn slider_btn slider_next "><img class="news_indicator" src="./images/next.png" alt="" width="16" ></div>',
   responsive: [
   {
     breakpoint: 1400,
