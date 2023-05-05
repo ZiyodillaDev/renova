@@ -7,8 +7,10 @@ const elTools = document.querySelector(".js-tools");
 const elPaper = document.querySelector(".js-paper");
 const elPipe = document.querySelector(".js-pipe");
 const elBuild = document.querySelector(".js-build");
+const elCount = document.querySelector(".js-count");
 const elBookmarkList = document.querySelector(".js-bookmarkList");
-let bookmarkList = new Set();
+let bookmarkList = [];
+let sums = 0;
 
 function porducts(arr, node) {
   node.innerHTML = "";
@@ -174,21 +176,28 @@ elList.addEventListener("click", (evt) => {
       (pokemon) => pokemon.id == productId
     );
 
-    bookmarkList.add(findedProduct);
-
+    sums += 1;
+    bookmarkList.push(findedProduct);
+    console.log(sums);
     renderBuyBookmark(bookmarkList, elBookmarkList);
+    elCount.innerHTML=sums
   }
 });
 
 elBookmarkList.addEventListener("click", (evt) => {
   if (evt.target.matches(".delete-bookmark")) {
     const productId = evt.target.dataset.productId;
-
+    console.log("productId", productId);
     const findedProduct = productWood.find(
       (pokemon) => pokemon.id == productId
     );
-
-    bookmarkList.delete(findedProduct);
+    const findedProductInx = productWood.findIndex(
+      (pokemon) => pokemon.id == productId
+    );
+    console.log(findedProductInx);
+    console.log(bookmarkList, findedProduct);
+    bookmarkList.splice(findedProduct, 1);
     renderBuyBookmark(bookmarkList, elBookmarkList);
+    // renderBuyBookmark(elCount, sums);
   }
 });
