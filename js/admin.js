@@ -8,9 +8,7 @@ let elProductNew = document.querySelector(".js-productsBtn");
 let elBtnAll = document.querySelector(".allBtn");
 let elList = document.querySelector(".js-list");
 let elListNews = document.querySelector(".js-listNews");
-
 const localData = localStorage.getItem("token");
-
 // if (!localData) {
 //   location.replace("login.html");
 // }
@@ -33,9 +31,10 @@ const renderProduct = (array, node) => {
             <p class="card-price ">${product.price}</p>
         </div>
         <div class="card-footer">
-        <button data-todo-id=${product.id} class="btn product-edit text-white btn-warning"> <img src="./images/edit.png" alt="edit"></a>
-        <button data-todo-id=${product.id} class="btn product-delete btn-danger">
+        <button data-todo-id=${product.id} class="btn d-flex align-items-center product-edit text-white btn-warning"> <img src="./images/edit.png" alt="edit">Edit</a>
+        <button data-todo-id=${product.id} class="btn product-delete d-flex align-items-center btn-danger">
         <img src="./images/delete.png" alt="delete">
+        Delete
         </a>
         </div>
 </div>
@@ -152,27 +151,36 @@ const edit = (product_id) => {
   formData.append("product_img", elFileInput.files[0]);
   formData.append("product_price", elPriceInput.value);
 
-  fetch(`http://10.10.0.224:5000/product/${product_id}`, {
-    method: "PUT",
-    headers: {
-      //   "Content-Type": "application/json",
-      Authorization: localData,
-    },
-    body: formData,
-  });
+  // fetch(`http://10.10.0.224:5000/product/${product_id}`, {
+  //   method: "PUT",
+  //   headers: {
+  //     //   "Content-Type": "application/json",
+  //     Authorization: localData,
+  //   },
+  //   body: formData,
+  // });
 };
+
+let elBody=document.querySelector("body")
 
 elList.addEventListener("click", (evt) => {
   evt.preventDefault();
   if (evt.target.matches(".product-delete")) {
     const productId = evt.target.dataset.todoId;
-    console.log(productId);
     deleteProduct(productId);
   }
-  if (evt.target.matches(".product-edit")) {
-    const productId = evt.target.dataset.todoId;
-    edit(productId);
-  }
+  // if (evt.target.matches(".product-edit")) {
+  //   const productId = evt.target.dataset.todoId;
+  //   console.log(productId);
+  //   elModal.style.display="flex"
+  //   edit(productId);
+  // }
+
+      if (evt.target.matches(".product-edit")) {
+        elBody.classList.add("modalbtn");
+      const productId = evt.target.dataset.todoId;
+      edit(productId);
+    }
 });
 
 elBtnAll.addEventListener("click", (evt) => {
@@ -188,3 +196,4 @@ elBtnAll.addEventListener("click", (evt) => {
     elListNews.classList.remove("d-none");
   }
 });
+
