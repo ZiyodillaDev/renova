@@ -15,6 +15,25 @@
 </head>
 
 <body>
+    <div class="overlay">
+        <div class="myWrapper">
+            <div class="modal_head">
+                <button class="js_close"> X </button>
+            </div>
+            <h3 >Admin page</h3>
+            <form class="modal_admin">
+                <div class="user-box">
+                    <input type="email" class="admin_name" name="admin_name" required="Iltiomos ismingizni kiriting" title="Ismingizni kiriting">
+                    <label>Email</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" class="admin_parol" name="admin_parol" required="Iltiomos Parolingizni kiriting" title="Parolingizni kiriting">
+                    <label>Password</label>
+                </div>
+                <button type="submit" class=" btn_send">Send</button>
+            </form>
+        </div>
+    </div>
     <div class="header-top">
         <div class="langs menu">
             <a href="#" language="english" class="lang lang1">АНГ</a>
@@ -49,7 +68,7 @@
                         <a href="#news_section" class="nav__link link5" id="contact">Новости</a>
                     </li>
                     <li class="nav__item">
-                        <a href="./admin.html" class="nav__link link5" id="contact"><img src="./images/user.png" alt="user"></a>
+                        <button class=" link5 js_admin " id="contact"><img src="./images/user.png" alt="user"></button>
                     </li>
 
                 </ul>
