@@ -16,9 +16,11 @@
   margin: 0;
   padding: 0;
 }
+
 .slick-list:focus {
   outline: none;
 }
+
 .slick-list.dragging {
   cursor: pointer;
   cursor: hand;
@@ -37,13 +39,16 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .slick-track:before, .slick-track:after {
   content: "";
   display: table;
 }
+
 .slick-track:after {
   clear: both;
 }
+
 .slick-loading .slick-track {
   visibility: hidden;
 }
@@ -54,24 +59,31 @@
   min-height: 1px;
   display: none;
 }
-[dir=rtl] .slick-slide {
+
+[dir="rtl"] .slick-slide {
   float: right;
 }
+
 .slick-slide img {
   display: block;
 }
+
 .slick-slide.slick-loading img {
   display: none;
 }
+
 .slick-slide.dragging img {
   pointer-events: none;
 }
+
 .slick-initialized .slick-slide {
   display: block;
 }
+
 .slick-loading .slick-slide {
   visibility: hidden;
 }
+
 .slick-vertical .slick-slide {
   display: block;
   height: auto;
@@ -80,4 +92,5 @@
 
 .slick-arrow.slick-hidden {
   display: none;
-}/*# sourceMappingURL=slick.css.map */
+}
+/*# sourceMappingURL=slick.css.map */

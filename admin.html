@@ -33,12 +33,12 @@
 
 <body>
 
-    <div class="d-flex ">
+    <div>
         <!-- <div class=" col-3"> -->
         <!-- <h1 class=" p-3  ms-3">Products</h1> -->
         <div class="admin">
 
-            <header>
+            <header class="top_head">
                 <div class="container">
                     <div class="all_heads">
                         <div>
@@ -53,49 +53,41 @@
                                 <a href="#product_section" class="link3" id="service">Продукты</a>
                                 <a href="#service_section" class="link4" id="work">Услуги</a>
                                 <a href="#news_section" class="link5" id="contact">Новости</a>
-                                <a href="./admin.html"><img src="./images/user.png" alt="user"></a>
+                                <a href="./index.html"><img src="./images/home.png" alt="user"></a>
                             </div>
                         </nav>
                         <div class="mobile">
                             <input type="checkbox" id="active">
                             <label for="active" class="menu_btn" id="menuBtn"><i class="fas fa-bars"></i></label>
                             <div class="header-container">
-                             <ul class="mobile-menu">
-                           <li><a class="link1" id="home" href="#">Главная</a></li>
-                         <li><a href="#about_section" class="link2" id="about">О компании</a></li>
-                       <li><a href="#product_section" class="link3" id="service">Продукты</a></li>
-                       <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
-                       <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
-                       <li><a href="./admin.html"><img class="user" src="./images/user.png" alt="user"></a></li>
+                                <ul class="mobile-menu">
+                                    <li><a class="link1" id="home" href="#">Главная</a></li>
+                                    <li><a href="#about_section" class="link2" id="about">О компании</a></li>
+                                    <li><a href="#product_section" class="link3" id="service">Продукты</a></li>
+                                    <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
+                                    <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
+                                    <li><a href="./index.html"><img class="user" src="./images/home.png" alt="user"></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
-  
-                <button class="btn  position-relative" class="btn index_card  btn-white" type="button"
-                  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-    
-    
-                  <img src="./images/shopping-cart.png" alt="cart">
-                  <span class="position-absolute js-count top-0 start-100 translate-middle badge rounded-pill bg-danger mt-1 me-3">
-                    
-                    <span class="visually-hidden">unread messages</span>
-                  </span>
-                </button>
-    
-                <div class="offcanvas offcanvas-end end" tabindex="-1" id="offcanvasRight"
-                  aria-labelledby="offcanvasRightLabel">
-                  <div class="offcanvas-header">
+
+           
+
+            <div class="offcanvas offcanvas-end end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasRightLabel">Buy</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <div class="offcanvas-body ">
+                </div>
+                <div class="offcanvas-body ">
                     <div class="js-bookmarkList">
                     </div>
-                  </div>
                 </div>
+            </div>
         </div>
         <div class="overlay">
             <div class="myWrapper">
@@ -227,7 +219,8 @@
             </div>
 
         </div>
-        <hr>
+    </div>
+    <hr>
     </div>
     <footer class="mt-5">
         <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
