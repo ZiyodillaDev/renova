@@ -40,6 +40,7 @@ footer {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      
       &__desc{
           color: white;
           font-size: 25px;
@@ -60,6 +61,11 @@ footer {
       .footer{
           gap: 50px;
       }
+  }
+  @media screen and (max-width: 625px) {
+    .pages,.contact,.social-medias{
+        margin: 0 auto;
+    }
   }
   @media screen and (max-width: 324px) {
     .pages{

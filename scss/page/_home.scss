@@ -1,5 +1,5 @@
 .home {
-    padding: 0 90px;
+    padding: 0 80px;
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -29,11 +29,11 @@
   }
   
   .home .content.active {
-    display: block;
+    display: block !important;
   }
   
   .content__desc {
-    font-size: 80px;
+    font-size: 80px !important; 
   }
   
   .content__text {

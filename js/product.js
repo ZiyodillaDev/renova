@@ -23,7 +23,7 @@ function porducts(arr, node) {
     cardContent.setAttribute("class", "card-content");
     cardBox.appendChild(cardContent);
 
-    const createImg = document.createElement("img");
+    var createImg = document.createElement("img");
     createImg.setAttribute("src", i.img);
     createImg.setAttribute("class", "card-img");
     createImg.innerHTML = i.img;
@@ -95,7 +95,6 @@ elBtns.addEventListener("click", (evt) => {
   evt.preventDefault();
 
   if (evt.target.matches(".js-doors")) {
-    console.log(123);
     elDoors.classList.add("active1");
     let filteredProduct = productWood.filter((el) => el.title == "Door");
     porducts(filteredProduct, elList);
@@ -147,6 +146,7 @@ const renderBuyBookmark = (array, node) => {
   array.forEach((item) => {
     sum += +item.price;
     const newItem = document.createElement("li");
+    const newImg = document.createElement("img");
     const newText = document.createElement("p");
     const newDeleteButton = document.createElement("button");
 
@@ -156,18 +156,25 @@ const renderBuyBookmark = (array, node) => {
       "class",
       "delete-bookmark btn btn-danger ms-auto"
     );
-
+    // newImg.src = document.querySelector(".card-img")
+    newImg.src = item.img
+    newImg.setAttribute("class", "newIMG")
     newText.textContent = item.name + " - " + item.price + "$";
     newDeleteButton.innerHTML = "&times;";
     newDeleteButton.dataset.productId = item.id;
+    newItem.appendChild(newImg)
     newItem.appendChild(newText);
     newItem.appendChild(newDeleteButton);
     node.appendChild(newItem);
+
   });
   const newSum = document.createElement("b");
   node.appendChild(newSum);
   newSum.textContent = "All price = " + sum + "$";
+
 };
+
+
 
 elList.addEventListener("click", (evt) => {
   if (evt.target.matches(".js-bookmark")) {
@@ -178,7 +185,7 @@ elList.addEventListener("click", (evt) => {
 
     sums += 1;
     bookmarkList.push(findedProduct);
-    console.log(sums);
+    console.log(bookmarkList);
     renderBuyBookmark(bookmarkList, elBookmarkList);
     elCount.innerHTML=sums
   }
@@ -194,9 +201,8 @@ elBookmarkList.addEventListener("click", (evt) => {
     const findedProductInx = productWood.findIndex(
       (pokemon) => pokemon.id == productId
     );
-    console.log(findedProductInx);
-    console.log(bookmarkList, findedProduct);
-    bookmarkList.splice(findedProduct, 1);
+    console.log( findedProduct);
+    // bookmarkList.splice(findedProduct, 1);
     renderBuyBookmark(bookmarkList, elBookmarkList);
     // renderBuyBookmark(elCount, sums);
   }

@@ -27,14 +27,10 @@
 
 // admin js
 
-const elAdmin = document.querySelector('.js_admin');
 const elOverlay = document.querySelector('.overlay');
 const elClose =document.querySelector(".js_close")
 
-elAdmin.addEventListener('click', (evt) => {
-	evt.preventDefault();
-	console.log(elOverlay.style.display ="flex");
-});
+
 
 elClose.addEventListener("click",(evt)=>{
 evt.preventDefault()

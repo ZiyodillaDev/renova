@@ -172,9 +172,12 @@ header {
 }
 
 @media screen and (max-width: 1000px) {
+  header{
+    padding: 1.9rem 0 !important;
+  }
   .mobile {
     margin-top: 20px;
-    display: block;
+    display: block !important;
   }
   nav {
     display: none;
