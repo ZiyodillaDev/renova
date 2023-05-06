@@ -22,41 +22,41 @@
   </div>
   <header>
     <div class="container">
-        <div class="all_heads">
-            <div>
-                <a href="index.html" id="logo">
-                    <img class="logo" src="./images/logo.png" alt="logo">
-                </a>
-            </div>
-            <nav>
-                <div class="menu">
-                    <a class="link1" id="home" href="#">Главная</a>
-                    <a href="#about_section" class="link2" id="about">О компании</a>
-                    <a href="#product_section" class="link3" id="service">Продукты</a>
-                    <a href="#service_section" class="link4" id="work">Услуги</a>
-                    <a href="#news_section" class="link5" id="contact">Новости</a>
-                    <a href="./admin.html"><img src="./images/user.png" alt="user"></a>
-                </div>
-            </nav>
-            <div class="mobile">
-                <input type="checkbox" id="active">
-                <label for="active" class="menu_btn" id="menuBtn"><i class="fas fa-bars"></i></label>
-                <div class="header-container">
-                 <ul class="mobile-menu">
-               <li><a class="link1" id="home" href="#">Главная</a></li>
-             <li><a href="#about_section" class="link2" id="about">О компании</a></li>
-           <li><a href="#product_section" class="link3" id="service">Продукты</a></li>
-           <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
-           <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
-           <li><a href="./admin.html"><img class="user" src="./images/user.png" alt="user"></a></li>
-                    </ul>
-                </div>
-                
-            </div>
-            
+      <div class="all_heads">
+        <div>
+          <a href="index.html" id="logo">
+            <img class="logo" src="./images/logo.png" alt="logo">
+          </a>
         </div>
+        <nav>
+          <div class="menu">
+            <a class="link1" id="home" href="#">Главная</a>
+            <a href="#about_section" class="link2" id="about">О компании</a>
+            <a href="#product_section" class="link3" id="service">Продукты</a>
+            <a href="#service_section" class="link4" id="work">Услуги</a>
+            <a href="#news_section" class="link5" id="contact">Новости</a>
+            <a href="./admin.html"><img src="./images/user.png" alt="user"></a>
+          </div>
+        </nav>
+        <div class="mobile">
+          <input type="checkbox" id="active">
+          <label for="active" class="menu_btn" id="menuBtn"><i class="fas fa-bars"></i></label>
+          <div class="header-container">
+            <ul class="mobile-menu">
+              <li><a class="link1" id="home" href="#">Главная</a></li>
+              <li><a href="#about_section" class="link2" id="about">О компании</a></li>
+              <li><a href="#product_section" class="link3" id="service">Продукты</a></li>
+              <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
+              <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
+              <li><a href="./admin.html"><img class="user" src="./images/user.png" alt="user"></a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
     </div>
-</header>
+  </header>
 
   <section class="sliderProduct ">
     <div class="all">
@@ -71,11 +71,14 @@
           </span>
         </button>
 
-        <div class="offcanvas offcanvas-end end" tabindex="-1" id="offcanvasRight"
-          aria-labelledby="offcanvasRightLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Buy</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+
+      <div class="offcanvas offcanvas-end end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Buy</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
           </div>
           <div class="offcanvas-body ">
@@ -84,6 +87,12 @@
           <button class="buy">Buy</button>
           </div>
         </div>
+        <div class="offcanvas-body ">
+          <div class="js-bookmarkList">
+          </div>
+          <a class="buy" href="buy.html">Buy</a>
+        </div>
+      </div>
       <form action="#" class="mt-5 pt-5">
         <input type="search" class="input-group form-control js-input w-50 mb-5 m-auto" placeholder="Search...">
       </form>

@@ -1,13 +1,13 @@
 header {
   padding: 1.2rem 0;
   position: fixed;
-  top:48px;
+  top: 48px;
   background-color: #333333b3 !important;
   z-index: 9999;
   width: 100%;
   transition: all 0.4s ease !important;
 }
-.top_head{
+.top_head {
   margin-top: -15px;
 }
 
@@ -63,7 +63,7 @@ header {
     background-color: #ec6608 !important;
   }
   &:hover::before,
-  &:focus::before { 
+  &:focus::before {
     transform-origin: left top;
     transform: scale(1, 1);
   }
@@ -71,12 +71,10 @@ header {
 
 /* Language */
 
-.langs  .active:after {
+.langs .active:after {
   border-bottom: 3px solid #ec6608 !important;
   width: 100% !important;
 }
-
-
 
 .header-container {
   position: absolute;
@@ -125,10 +123,10 @@ header {
     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     inset 2px 2px 8px rgba(0, 0, 0, 0.8);
-    .user{
-        filter: invert(52%) sepia(23%) saturate(665%) hue-rotate(162deg) brightness(91%) contrast(89%);
-    }
-    
+  .user {
+    filter: invert(52%) sepia(23%) saturate(665%) hue-rotate(162deg)
+      brightness(91%) contrast(89%);
+  }
 }
 
 .menu_btn {
@@ -175,7 +173,7 @@ header {
 }
 
 @media screen and (max-width: 1000px) {
-  header{
+  header {
     padding: 1.9rem 0 !important;
   }
   .mobile {
@@ -191,4 +189,51 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.lang_css {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: #333333b3;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  margin-left: -55px;
+  // margin-top: 25px;
+  color: #fff;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333333b3;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  margin-left: -75px;
+  margin-top: 25px;
+  color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown1:hover .dropdown-content1 {
+  display: block;
 }
