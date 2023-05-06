@@ -161,7 +161,11 @@ const edit = (product_id) => {
   // });
 };
 
-let elBody=document.querySelector("body")
+let elBody = document.querySelector("body");
+
+const elAdmin = document.querySelector(".product-edit");
+const elOverlay = document.querySelector(".overlay");
+const elClose = document.querySelector(".js_close");
 
 elList.addEventListener("click", (evt) => {
   evt.preventDefault();
@@ -176,11 +180,14 @@ elList.addEventListener("click", (evt) => {
   //   edit(productId);
   // }
 
-      if (evt.target.matches(".product-edit")) {
-        elBody.classList.add("modalbtn");
-      const productId = evt.target.dataset.todoId;
-      edit(productId);
-    }
+  if (evt.target.matches(".product-edit")) {
+    elBody.classList.add("modalbtn");
+    const productId = evt.target.dataset.todoId;
+
+    elOverlay.style.display = "flex";
+
+    edit(productId);
+  }
 });
 
 elBtnAll.addEventListener("click", (evt) => {
@@ -197,3 +204,36 @@ elBtnAll.addEventListener("click", (evt) => {
   }
 });
 
+// admin \\
+// modal
+
+elClose.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  elOverlay.style.display = "none";
+});
+
+const elAdminLogin = document.querySelector(".modal_admin");
+
+elAdminLogin.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  console.log({
+    name:elNameInput.value,
+    text:elDescInput.value,
+    file:elFileInput.value,
+    price:elPriceInput.value,
+    
+  });
+
+  fetch("http://95.130.227.84:8075/api/v1/auth/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(adminObj),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("data", data);
+    })
+    .catch((err) => console.log(err));
+});

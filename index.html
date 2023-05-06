@@ -15,6 +15,27 @@
 </head>
 
 <body>
+    <div class="overlay">
+        <div class="myWrapper">
+            <div class="modal_head">
+                <button class="js_close"> X </button>
+            </div>
+            <h3>Admin page</h3>
+            <form class="modal_admin">
+                <div class="user-box">
+                    <input type="email" class="admin_name" name="admin_name" required="Iltiomos ismingizni kiriting"
+                        title="Ismingizni kiriting">
+                    <label>Email</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" class="admin_parol" name="admin_parol"
+                        required="Iltiomos Parolingizni kiriting" title="Parolingizni kiriting">
+                    <label>Password</label>
+                </div>
+                <button type="submit" class=" btn_send">Send</button>
+            </form>
+        </div>
+    </div>
 
     <div class="header-top">
         <div class="langs menu">
@@ -38,25 +59,30 @@
                         <a href="#product_section" class="link3" id="service">Продукты</a>
                         <a href="#service_section" class="link4" id="work">Услуги</a>
                         <a href="#news_section" class="link5" id="contact">Новости</a>
-                        <a href="./admin.html"><img src="./images/user.png" alt="user"></a>
+                        <li class="nav__item">
+                            <button class=" link5 js_admin " id="contact"><img src="./images/user.png" alt="user" width="25"></button>
+                        </li>
                     </div>
                 </nav>
                 <div class="mobile">
                     <input type="checkbox" id="active">
                     <label for="active" class="menu_btn" id="menuBtn"><i class="fas fa-bars"></i></label>
                     <div class="header-container">
-                     <ul class="mobile-menu">
-                   <li><a class="link1" id="home" href="#">Главная</a></li>
-                 <li><a href="#about_section" class="link2" id="about">О компании</a></li>
-               <li><a href="#product_section" class="link3" id="service">Продукты</a></li>
-               <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
-               <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
-               <li><a href="./admin.html"><img class="user" src="./images/user.png" alt="user"></a></li>
+                        <ul class="mobile-menu">
+                            <li><a class="link1" id="home" href="#">Главная</a></li>
+                            <li><a href="#about_section" class="link2" id="about">О компании</a></li>
+                            <li><a href="#product_section" class="link3" id="service">Продукты</a></li>
+                            <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
+                            <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
+                            <li class="nav__item">
+                                <button class=" link5 js_admin " id="contact"><img src="./images/user.png"
+                                        alt="user"></button>
+                            </li>
                         </ul>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
         </div>
     </header>
@@ -507,6 +533,11 @@
                     </div>
                 </div>
             </div>
+            <div class="foter_line"></div>
+            <div class="production_box">
+                <p> @produced  by the Astrolab </p>
+                <span>2023</span>
+            </div>
         </div>
     </footer>
     <div class="overlay">
@@ -514,14 +545,16 @@
             <div class="modal_head">
                 <button class="js_close"> X </button>
             </div>
-            <h3 >Admin page</h3>
+            <h3>Admin page</h3>
             <form class="modal_admin">
                 <div class="user-box">
-                    <input type="email" class="admin_name" name="admin_name" required="Iltiomos ismingizni kiriting" title="Ismingizni kiriting">
+                    <input type="email" class="admin_name" name="admin_name" required="Iltiomos ismingizni kiriting"
+                        title="Ismingizni kiriting">
                     <label>Email</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" class="admin_parol" name="admin_parol" required="Iltiomos Parolingizni kiriting" title="Parolingizni kiriting">
+                    <input type="password" class="admin_parol" name="admin_parol"
+                        required="Iltiomos Parolingizni kiriting" title="Parolingizni kiriting">
                     <label>Password</label>
                 </div>
                 <button type="submit" class=" btn_send">Send</button>
