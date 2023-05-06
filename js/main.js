@@ -43,7 +43,6 @@ const elOverlay = document.querySelector(".overlay");
 const elClose = document.querySelector(".js_close");
 const elAdmin = document.querySelector(".js_admin");
 
-
 elAdmin.addEventListener("click", (evt) => {
   evt.preventDefault();
   elOverlay.style.display = "flex";
@@ -59,32 +58,23 @@ const adminParol = document.querySelector(".admin_parol");
 
 elAdminLogin.addEventListener("submit", (evt) => {
   evt.preventDefault();
-
-  const adName = adminName.value;
-  const adPas = adminParol.value;
-  const adminObj = {
-    name: adminName.value,
+  let admin = {
+    email: adminName.value,
     password: adminParol.value,
   };
-  console.log(adminObj);
-  location.replace("admin.html");
 
-  fetch("http://95.130.227.84:8075/api/v1/auth/sign-in", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(adminObj),
+  fetch(`https://burxondv.jprq.live/v1/login/${adminName.value}/${adminParol.value}`,{
+    method: "GET",
+    // Param: JSON.stringify({
+    //   email: adminName.value,
+    //   password: adminParol.value,
+    // }),
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log("data", data);
-      if (data.data) {
-        if (adName == "turgunboyev791@gmail.com" && adPas == "asad7167") {
-          localStorage.setItem("accessToken", data.data.accessToken);
-          localStorage.setItem("refreshToken", data.data.refreshToken);
-          location.replace("admin.html");
-        }
+      if(data.token){
+        localStorage.setItem("token", data.token);
+  location.replace("admin.html");
       }
     })
     .catch((err) => console.log(err));
