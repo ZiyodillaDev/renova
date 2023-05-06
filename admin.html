@@ -76,7 +76,35 @@
                 </div>
             </header>
 
-
+            <div class="overlay two_overlay">
+                <div class="myWrapper">
+                    <div class="modal_head">
+                        <button class="js_close"> X </button>
+                    </div>
+                    <h3>Edit modal</h3>
+                    <div class="modal-body">
+                        <form class="modal_admin">
+                            <div class="mb-3">
+                                <input type="text" name="name" class="js-name form-control" placeholder="Name">
+                            </div>
+                            <div class="mb-3">
+                                <!-- <input type="text" name="desc" class="form-control js-desc"> -->
+                                <textarea class="js-desc form-control" placeholder="Description"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <input type="file" name="img" class="js-file form-control">
+                            </div>
+                            <div class="mb-3">
+                                <input class="js-price form-control" type="number" placeholder="Price">
+                            </div>
+                            <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
+                            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Send
+                                message</button>
+                        </form>
+                    </div>
+    
+                </div>
+            </div>
 
             <div class="offcanvas offcanvas-end end" tabindex="-1" id="offcanvasRight"
                 aria-labelledby="offcanvasRightLabel">
@@ -90,35 +118,7 @@
                 </div>
             </div>
         </div>
-        <div class="overlay">
-            <div class="myWrapper">
-                <div class="modal_head">
-                    <button class="js_close"> X </button>
-                </div>
-                <h3>Edit modal</h3>
-                <div class="modal-body">
-                    <form class="modal_admin">
-                        <div class="mb-3">
-                            <input type="text" name="name" class="js-name form-control" placeholder="Name">
-                        </div>
-                        <div class="mb-3">
-                            <!-- <input type="text" name="desc" class="form-control js-desc"> -->
-                            <textarea class="js-desc form-control" placeholder="Description"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <input type="file" name="img" class="js-file form-control">
-                        </div>
-                        <div class="mb-3">
-                            <input class="js-price form-control" type="number" placeholder="Price">
-                        </div>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Send
-                            message</button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
+        
         <!-- </div> -->
         <div class=" pt-5 mt-5  all_admin">
 
