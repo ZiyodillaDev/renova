@@ -9,7 +9,7 @@ const elPipe = document.querySelector(".js-pipe");
 const elBuild = document.querySelector(".js-build");
 const elCount = document.querySelector(".js-count");
 const elBookmarkList = document.querySelector(".js-bookmarkList");
-let bookmarkList = [];
+let bookmarkList = new Set();
 let sums = 0;
 
 function porducts(arr, node) {
@@ -143,12 +143,27 @@ elBtns.addEventListener("click", (evt) => {
 const renderBuyBookmark = (array, node) => {
   node.innerHTML = "";
   let sum = 0;
+  let sumsAll = 0;
+
   array.forEach((item) => {
     sum += +item.price;
     const newItem = document.createElement("li");
     const newImg = document.createElement("img");
     const newText = document.createElement("p");
     const newDeleteButton = document.createElement("button");
+    let newTextSum = document.createElement("span");
+
+    const newDeleteButtonMin = document.createElement("button");
+    const newDeleteButtonPls = document.createElement("button");
+
+    newDeleteButtonMin.setAttribute(
+      "class",
+      "btn btn-primary align-items-center p-1 d-flex "
+    );
+    newDeleteButtonPls.setAttribute(
+      "class",
+      "btn btn-primary align-items-center p-1 d-flex "
+    );
 
     newItem.setAttribute("class", " align-items-center p-1 d-flex ");
     newText.setAttribute("class", "m-0 text-black me-3");
@@ -156,25 +171,41 @@ const renderBuyBookmark = (array, node) => {
       "class",
       "delete-bookmark btn btn-danger ms-auto"
     );
+    newDeleteButtonMin.setAttribute("class", "minus btn btn-primary ms-auto");
+    newDeleteButtonPls.setAttribute("class", "plus btn btn-primary ms-auto");
+    newTextSum.setAttribute("class", "sum  ms-auto");
+    newItem.addEventListener("click", (evt) => {
+      evt.preventDefault();
+      if (evt.target.matches(".plus")) {
+        sumsAll += 1;
+      }
+      if (evt.target.matches(".minus")) {
+        if (sumsAll > 0) {
+          sumsAll -= 1;
+        }
+      }
+      newTextSum.innerHTML = sumsAll;
+    });
     // newImg.src = document.querySelector(".card-img")
-    newImg.src = item.img
-    newImg.setAttribute("class", "newIMG")
+    newImg.src = item.img;
+    newImg.setAttribute("class", "newIMG");
     newText.textContent = item.name + " - " + item.price + "$";
     newDeleteButton.innerHTML = "&times;";
+    newDeleteButtonMin.innerHTML = "-";
+    newDeleteButtonPls.innerHTML = "+";
     newDeleteButton.dataset.productId = item.id;
-    newItem.appendChild(newImg)
+    newItem.appendChild(newImg);
     newItem.appendChild(newText);
+    newItem.appendChild(newDeleteButtonMin);
+    newItem.appendChild(newTextSum);
+    newItem.appendChild(newDeleteButtonPls);
     newItem.appendChild(newDeleteButton);
     node.appendChild(newItem);
-
   });
   const newSum = document.createElement("b");
   node.appendChild(newSum);
   newSum.textContent = "All price = " + sum + "$";
-
 };
-
-
 
 elList.addEventListener("click", (evt) => {
   if (evt.target.matches(".js-bookmark")) {
@@ -184,10 +215,9 @@ elList.addEventListener("click", (evt) => {
     );
 
     sums += 1;
-    bookmarkList.push(findedProduct);
-    console.log(bookmarkList);
+    bookmarkList.add(findedProduct);
     renderBuyBookmark(bookmarkList, elBookmarkList);
-    elCount.innerHTML=sums
+    elCount.innerHTML = sums;
   }
 });
 
@@ -198,12 +228,8 @@ elBookmarkList.addEventListener("click", (evt) => {
     const findedProduct = productWood.find(
       (pokemon) => pokemon.id == productId
     );
-    const findedProductInx = productWood.findIndex(
-      (pokemon) => pokemon.id == productId
-    );
-    console.log( findedProduct);
-    // bookmarkList.splice(findedProduct, 1);
+
+    bookmarkList.delete(findedProduct);
     renderBuyBookmark(bookmarkList, elBookmarkList);
-    // renderBuyBookmark(elCount, sums);
   }
 });
