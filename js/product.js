@@ -157,24 +157,20 @@ const renderBuyBookmark = (array, node) => {
       "delete-bookmark btn btn-danger ms-auto"
     );
     // newImg.src = document.querySelector(".card-img")
-    newImg.src = item.img
-    newImg.setAttribute("class", "newIMG")
+    newImg.src = item.img;
+    newImg.setAttribute("class", "newIMG");
     newText.textContent = item.name + " - " + item.price + "$";
     newDeleteButton.innerHTML = "&times;";
     newDeleteButton.dataset.productId = item.id;
-    newItem.appendChild(newImg)
+    newItem.appendChild(newImg);
     newItem.appendChild(newText);
     newItem.appendChild(newDeleteButton);
     node.appendChild(newItem);
-
   });
   const newSum = document.createElement("b");
   node.appendChild(newSum);
   newSum.textContent = "All price = " + sum + "$";
-
 };
-
-
 
 elList.addEventListener("click", (evt) => {
   if (evt.target.matches(".js-bookmark")) {
@@ -187,7 +183,7 @@ elList.addEventListener("click", (evt) => {
     bookmarkList.push(findedProduct);
     console.log(bookmarkList);
     renderBuyBookmark(bookmarkList, elBookmarkList);
-    elCount.innerHTML=sums
+    elCount.innerHTML = sums;
   }
 });
 
@@ -201,9 +197,24 @@ elBookmarkList.addEventListener("click", (evt) => {
     const findedProductInx = productWood.findIndex(
       (pokemon) => pokemon.id == productId
     );
-    console.log( findedProduct);
+
     // bookmarkList.splice(findedProduct, 1);
     renderBuyBookmark(bookmarkList, elBookmarkList);
     // renderBuyBookmark(elCount, sums);
   }
+});
+
+const buyBtn = document.querySelector(".buy");
+const buy = document.querySelector(".shop");
+buy.addEventListener("click", () => {
+  if (!bookmarkList.length) {
+    buyBtn.disabled = true;
+  } else {
+    buyBtn.disabled = false;
+  }
+  buyBtn.addEventListener("click", () => {
+    location.replace("buy.html");
+    localStorage.setItem("products", JSON.stringify(bookmarkList));
+    localStorage.setItem("sum", JSON.stringify(newSum));
+  });
 });
