@@ -66,7 +66,7 @@ const renderNews = (array, node) => {
 
         </div>
      <div class="mt-3">
-     <button class="btn btn-warning"><img src="./images/edit.png" alt="edit">
+     <button class="btn btn-warning product-edit"><img src="./images/edit.png" alt="edit">
      </button>
      <button class="btn btn-danger"> <img src="./images/delete.png" alt="delete"></button>
      </div>
@@ -169,6 +169,30 @@ const elClose = document.querySelector(".js_close");
 
 elList.addEventListener("click", (evt) => {
   evt.preventDefault();
+  console.log(531531531);
+  if (evt.target.matches(".product-delete")) {
+    const productId = evt.target.dataset.todoId;
+    deleteProduct(productId);
+  }
+  // if (evt.target.matches(".product-edit")) {
+  //   const productId = evt.target.dataset.todoId;
+  //   console.log(productId);
+  //   elModal.style.display="flex"
+  //   edit(productId);
+  // }
+
+  if (evt.target.matches(".product-edit")) {
+    elBody.classList.add("modalbtn");
+    const productId = evt.target.dataset.todoId;
+
+    elOverlay.style.display = "flex";
+
+    edit(productId);
+  }
+});
+elListNews.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  console.log(531531531);
   if (evt.target.matches(".product-delete")) {
     const productId = evt.target.dataset.todoId;
     deleteProduct(productId);
@@ -190,19 +214,7 @@ elList.addEventListener("click", (evt) => {
   }
 });
 
-elBtnAll.addEventListener("click", (evt) => {
-  evt.preventDefault();
-  if (evt.target.matches(".js-newsBtn")) {
-    elList.classList.add("d-none");
-  } else {
-    elList.classList.remove("d-none");
-  }
-  if (evt.target.matches(".js-productsBtn")) {
-    elListNews.classList.add("d-none");
-  } else {
-    elListNews.classList.remove("d-none");
-  }
-});
+
 
 // admin \\
 // modal
