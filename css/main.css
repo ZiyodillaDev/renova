@@ -102,18 +102,15 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 .pages__desc {
   color: white;
   font-size: 25px;
-  text-align: center;
 }
 
 .contact__desc {
   color: white;
   font-size: 25px;
-  text-align: center;
 }
 
 @media screen and (max-width: 738px) {
