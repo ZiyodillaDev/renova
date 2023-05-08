@@ -80,7 +80,7 @@
             <div class="overlay two_overlay">
                 <div class="myWrapper">
                     <div class="modal_head">
-                        <button class="js_close"> X </button>
+                        <button class="js_close" id="product_edit"> X </button>
                     </div>
                     <h3>Edit modal</h3>
                     <div class="modal-body">
@@ -106,6 +106,36 @@
     
                 </div>
             </div>
+            <div class="overlay news_overlay two_overlay">
+                <div class="myWrapper">
+                    <div class="modal_head">
+                        <button class="js_close js_close-news" id="news_edit"> X </button>
+                    </div>
+                    <h3>Edit modal</h3>
+                    <div class="modal-body">
+                        <form class="newsForm_edit"> 
+                                <div class="mb-3">
+                                    <input type="text" name="title" class="post_title_edit form-control"
+                                        placeholder="Title">
+                                </div>
+                                <div class="mb-3">
+                                    <!-- <input type="text" name="desc" class="form-control js-desc"> -->
+                                    <textarea class="post_desc_edit form-control"
+                                        placeholder="Description"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="file" name="img" class="post_img_edit form-control" onchange="upload2()">
+                                </div>
+                         
+                                <button type="submit" data-bs-dismiss="modal5"
+                                    class="btn btn-primary">Send
+                                    message</button>
+                        </form>
+                    </div>
+    
+                </div>
+            </div>
+            
 
             <div class="offcanvas offcanvas-end end" tabindex="-1" id="offcanvasRight"
                 aria-labelledby="offcanvasRightLabel">
@@ -186,36 +216,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="overlay two_overlay">
-                        <div class="myWrapper">
-                            <div class="modal_head">
-                                <button class="js_close"> X </button>
-                            </div>
-                            <h3>Edit modal</h3>
-                            <div class="modal-body">
-                                <form class="admin_newsForm"> 
-                                    <div class="mb-3">
-                                        <input type="text" name="title" class="post_title form-control"
-                                            placeholder="Title">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea class="post_desc form-control"
-                                            placeholder="Description"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="file" name="img" class="post_img form-control">
-                                    </div>
-                             
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" data-bs-dismiss="modal1"
-                                        class="btn btn-primary">Send
-                                        message</button>
-                                </form>
-                            </div>
-            
-                        </div>
-                    </div> -->
+               
 
                     <div class="tab-pane  fade" id="v-pills-profile" role="tabpanel"
                         aria-labelledby="v-pills-profile-tab" tabindex="0">
@@ -243,7 +244,7 @@
                                                         placeholder="Description"></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input type="file" name="img" class="post_img form-control" onchange="uoload()">
+                                                    <input type="file" name="img" class="post_img form-control" onchange="upload()">
                                                 </div>
                                          
                                                 <button type="button" class="btn btn-secondary"
