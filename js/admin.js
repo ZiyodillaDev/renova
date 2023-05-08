@@ -1,6 +1,7 @@
 let elForm = document.querySelector(".js-form");
 let elNameInput = document.querySelector(".js-name");
 let elDescInput = document.querySelector(".js-desc");
+let elMark = document.querySelector(".js-mark");
 let elFileInput = document.querySelector(".js-file");
 let elPriceInput = document.querySelector(".js-price");
 let elBtnNew = document.querySelector(".js-newsBtn");
@@ -168,27 +169,33 @@ elForm.addEventListener("submit", (evt) => {
   evt.preventDefault(elForm);
 
   const formData = new FormData();
-  formData.append("product_name", elNameInput.value);
-  formData.append("product_desc", elDescInput.value);
-  formData.append("product_img", elFileInput.files[0]);
-  formData.append("product_price", elPriceInput.value);
+  formData.append("name", elNameInput.value);
+  formData.append("title", elDescInput.value);
+  formData.append("image_url", elFileInput.files[0]);
+  formData.append("mark", elMark.value);
+  formData.append("price", elPriceInput.value);
+  console.log(formData);
 
-  fetch("http://10.10.0.224:5000/product", {
+  fetch("https://burxondv.jprq.live/v1/product", {
     method: "POST",
     headers: {
-      // "Content-Type": "application/json",
-      Authorization: localData,
+      "Content-Type": "application/json",
     },
     body: formData,
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data) {
-        getProducts();
-      }
+      console.log(data);
       renderProduct(data, elList);
     })
     .catch((err) => console.log(err));
+  console.log({
+    name: elNameInput.value,
+    title: elDescInput.value,
+    image_url: elFileInput.files[0],
+    mark: elMark.value,
+    price: elPriceInput.value,
+  });
 });
 
 const deleteProduct = (product_id) => {
@@ -253,31 +260,29 @@ elList.addEventListener("click", (evt) => {
     edit(productId);
   }
 });
-elListNews.addEventListener("click", (evt) => {
-  evt.preventDefault();
-  console.log(531531531);
-  if (evt.target.matches(".product-delete")) {
-    const productId = evt.target.dataset.todoId;
-    deleteProduct(productId);
-  }
-  // if (evt.target.matches(".product-edit")) {
-  //   const productId = evt.target.dataset.todoId;
-  //   console.log(productId);
-  //   elModal.style.display="flex"
-  //   edit(productId);
-  // }
+// elListNews.addEventListener("click", (evt) => {
+//   evt.preventDefault();
+//   console.log(531531531);
+//   if (evt.target.matches(".product-delete")) {
+//     const productId = evt.target.dataset.todoId;
+//     deleteProduct(productId);
+//   }
+//   // if (evt.target.matches(".product-edit")) {
+//   //   const productId = evt.target.dataset.todoId;
+//   //   console.log(productId);
+//   //   elModal.style.display="flex"
+//   //   edit(productId);
+//   // }
 
-  if (evt.target.matches(".product-edit")) {
-    elBody.classList.add("modalbtn");
-    const productId = evt.target.dataset.todoId;
+//   if (evt.target.matches(".product-edit")) {
+//     elBody.classList.add("modalbtn");
+//     const productId = evt.target.dataset.todoId;
 
-    elOverlay.style.display = "flex";
+//     elOverlay.style.display = "flex";
 
-    edit(productId);
-  }
-});
-
-
+//     edit(productId);
+//   }
+// });
 
 // admin \\
 // modal
@@ -292,11 +297,10 @@ const elAdminLogin = document.querySelector(".modal_admin");
 elAdminLogin.addEventListener("submit", (evt) => {
   evt.preventDefault();
   console.log({
-    name:elNameInput.value,
-    text:elDescInput.value,
-    file:elFileInput.value,
-    price:elPriceInput.value,
-    
+    name: elNameInput.value,
+    text: elDescInput.value,
+    file: elFileInput.value,
+    price: elPriceInput.value,
   });
 
   fetch("http://95.130.227.84:8075/api/v1/auth/sign-in", {

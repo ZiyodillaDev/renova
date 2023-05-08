@@ -1,41 +1,16 @@
-// Hide lang
-const elTop = document.querySelector(".top");
-const elIcons = document.querySelector(".media-icons");
+// Dropdown
 
-var prevScrollpos = window.pageYOffset;
-elTop.style.display = "none";
-const num = 686;
-window.onscroll = function () {
-  var currentScrollPos = window.pageYOffset;
-  if (window.pageYOffset >= num) {
-    elTop.style.display = "flex";
-    elIcons.style.top = "20%";
-  } else {
-    elTop.style.display = "none";
-    elIcons.style.top = "50%";
-  }
-  if (prevScrollpos > currentScrollPos) {
-    let hide = document.querySelectorAll(".header-top");
-    let header = document.querySelectorAll("header");
-
-    hide.forEach((el) => {
-      el.style.top = "0";
-    });
-    header.forEach((el) => {
-      el.style.top = "47px";
-    });
-  } else {
-    let hide = document.querySelectorAll(".header-top");
-    let header = document.querySelectorAll("header");
-    hide.forEach((el) => {
-      el.style.top = "-80px";
-    });
-    header.forEach((el) => {
-      el.style.top = "0";
-    });
-  }
-  prevScrollpos = currentScrollPos;
-};
+const dropdown = document.querySelector(".selected");
+const item = document.querySelector(".dropdown-content2")
+dropdown.addEventListener("click", (evt) => {
+if(evt.target === dropdown){
+  console.log(true);
+  item.style.display = "block";
+}else if(item.style.display== "block"){
+  item.style.display = "none";
+  console.log(false);
+}
+});
 
 // admin js
 
@@ -63,18 +38,21 @@ elAdminLogin.addEventListener("submit", (evt) => {
     password: adminParol.value,
   };
 
-  fetch(`https://burxondv.jprq.live/v1/login/${adminName.value}/${adminParol.value}`,{
-    method: "GET",
-    // Param: JSON.stringify({
-    //   email: adminName.value,
-    //   password: adminParol.value,
-    // }),
-  })
+  fetch(
+    `https://burxondv.jprq.live/v1/login/${adminName.value}/${adminParol.value}`,
+    {
+      method: "GET",
+      // Param: JSON.stringify({
+      //   email: adminName.value,
+      //   password: adminParol.value,
+      // }),
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
-      if(data.token){
+      if (data.token) {
         localStorage.setItem("token", data.token);
-  location.replace("admin.html");
+        location.replace("admin.html");
       }
     })
     .catch((err) => console.log(err));

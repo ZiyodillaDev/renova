@@ -249,5 +249,6 @@ buy.addEventListener("click", () => {
   buyBtn.addEventListener("click", () => {
     location.replace("buy.html");
     localStorage.setItem("products", JSON.stringify(data));
+    localStorage.setItem("allsum", JSON.stringify(sum));
   });
 });
