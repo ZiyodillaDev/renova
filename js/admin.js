@@ -9,9 +9,9 @@ let elBtnAll = document.querySelector(".allBtn");
 let elList = document.querySelector(".js-list");
 let elListNews = document.querySelector(".js-listNews");
 const localData = localStorage.getItem("token");
-// if (!localData) {
-//   location.replace("login.html");
-// }
+if (!localData) {
+  location.replace("login.html");
+}
 
 const renderProduct = (array, node) => {
   node.innerHTML = "";
@@ -49,15 +49,13 @@ const renderNews = (array, node) => {
     node.innerHTML += `
     <div class="wrapper mt-5">
     <div class="carousel_top_img news_bg4">
-
+    <img src="${news.image_url}" alt="">
     </div>
     <div class="card_carousel_body">
 
-        <h4 class="carousel_card_heading2">Что вы знаете о новинках Renovos?
+        <h4 class="carousel_card_heading2"> ${news.title}
         </h4>
-        <p class="carousel_card_pr ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Delectus quos corporis aut quia temporibus, amet ab, quisquam dolorum at iusto
-            officiis velit voluptatibus eum accusamus aspernatur.</p>
+        <p class="carousel_card_pr ">${news.description }</p>
         <div class="card_bottom">
             <p>#Renovo</p>
 
@@ -88,18 +86,83 @@ function getProducts() {
 }
 
 getProducts();
-function getNews() {
-  // const res = await fetch("http://10.10.0.224:5000/product", {
-  //   headers: {
-  //     Authorization: localData,
-  //   },
-  // });
-  // const data = await res.json();
-  // console.log(data);
-  renderNews(productWood, elListNews);
+// news started
+async function  getNews() {
+  const res = await fetch("https://burxondv.jprq.live/v1/news?limit=10&page=2", {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: localData,
+    },
+  });
+  const data = await res.json();
+  console.log(data);
+  renderNews(data, elListNews);
 }
 
 getNews();
+
+
+const elPostForm =document.querySelector(".admin_newsForm")
+const postTitle =document.querySelector(".post_title")
+const postDesc =document.querySelector(".post_desc")
+const postFile =document.querySelector(".post_img")
+let url = "";
+const uoload = () =>{
+const data = new FormData()
+
+data.append("file", postFile.files[0])
+  fetch("https://burxondv.jprq.live/v1/file-upload", {
+  method: "POST",
+  headers: {
+    Authorization: localData, 
+  },
+  body: data
+})
+  .then((res) => res.json())
+  .then((data) => {
+   if(data.filename){
+    // console.log(data.filename);
+    url = data.filename
+    return url
+   }
+  })
+  return url
+}
+
+
+elPostForm.addEventListener("submit" , function (evt) {
+  evt.preventDefault()
+  // https://burxondv.jprq.live/v1/file-upload
+
+  console.log({
+    title:postTitle.value,
+    description:postDesc.value,
+    image_url:uoload(),
+  });
+ 
+console.log('uoload' ,uoload());
+fetch("https://burxondv.jprq.live/v1/news", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: localData,
+  },
+  body: JSON.stringify({
+    title:postTitle.value,
+    description:postDesc.value,
+    image_url:uoload(),
+  }),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    if (data) {
+      getProducts();
+    }
+    // renderProduct(data, elList);
+  })
+  .catch((err) => console.log(err));
+})
 
 elForm.addEventListener("submit", (evt) => {
   evt.preventDefault(elForm);

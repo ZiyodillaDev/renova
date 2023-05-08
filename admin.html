@@ -182,6 +182,38 @@
     
                         </div>
                     </div>
+
+                    <!-- <div class="overlay two_overlay">
+                        <div class="myWrapper">
+                            <div class="modal_head">
+                                <button class="js_close"> X </button>
+                            </div>
+                            <h3>Edit modal</h3>
+                            <div class="modal-body">
+                                <form class="admin_newsForm"> 
+                                    <div class="mb-3">
+                                        <input type="text" name="title" class="post_title form-control"
+                                            placeholder="Title">
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="post_desc form-control"
+                                            placeholder="Description"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="file" name="img" class="post_img form-control">
+                                    </div>
+                             
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" data-bs-dismiss="modal1"
+                                        class="btn btn-primary">Send
+                                        message</button>
+                                </form>
+                            </div>
+            
+                        </div>
+                    </div> -->
+
                     <div class="tab-pane  fade" id="v-pills-profile" role="tabpanel"
                         aria-labelledby="v-pills-profile-tab" tabindex="0">
                         <div class="index_card mt-1 ">
@@ -197,27 +229,20 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form class="admin_newsForm"> 
                                                 <div class="mb-3">
-                                                    <input type="text" name="name" class="js-name form-control"
+                                                    <input type="text" name="title" class="post_title form-control"
                                                         placeholder="Title">
                                                 </div>
                                                 <div class="mb-3">
                                                     <!-- <input type="text" name="desc" class="form-control js-desc"> -->
-                                                    <textarea class="js-desc form-control"
-                                                        placeholder="Name"></textarea>
+                                                    <textarea class="post_desc form-control"
+                                                        placeholder="Description"></textarea>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input type="file" name="img" class="js-file form-control">
+                                                    <input type="file" name="img" class="post_img form-control" onchange="uoload()">
                                                 </div>
-                                                <div class="mb-3">
-                                                    <input class="js-price form-control" type="number"
-                                                        placeholder="Mark">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <input class="js-price form-control" type="number"
-                                                        placeholder="Price">
-                                                </div>
+                                         
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
                                                 <button type="submit" data-bs-dismiss="modal1"
