@@ -1,6 +1,7 @@
 let elForm = document.querySelector(".js-form");
 let elNameInput = document.querySelector(".js-name");
 let elDescInput = document.querySelector(".js-desc");
+let elMark = document.querySelector(".js-mark");
 let elFileInput = document.querySelector(".js-file");
 let elPriceInput = document.querySelector(".js-price");
 let elBtnNew = document.querySelector(".js-newsBtn");
@@ -43,89 +44,95 @@ const renderProduct = (array, node) => {
           `;
   });
 };
-const renderNews = (array, node) => {
-  node.innerHTML = "";
-  array.forEach((news) => {
-    node.innerHTML += `
-    <div class="wrapper mt-5">
-    <div class="carousel_top_img news_bg4">
+// const renderNews = (array, node) => {
+//   node.innerHTML = "";
+//   array.forEach((news) => {
+//     node.innerHTML += `
+//     <div class="wrapper mt-5">
+//     <div class="carousel_top_img news_bg4">
 
-    </div>
-    <div class="card_carousel_body">
+//     </div>
+//     <div class="card_carousel_body">
 
-        <h4 class="carousel_card_heading2">Что вы знаете о новинках Renovos?
-        </h4>
-        <p class="carousel_card_pr ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Delectus quos corporis aut quia temporibus, amet ab, quisquam dolorum at iusto
-            officiis velit voluptatibus eum accusamus aspernatur.</p>
-        <div class="card_bottom">
-            <p>#Renovo</p>
+//         <h4 class="carousel_card_heading2">Что вы знаете о новинках Renovos?
+//         </h4>
+//         <p class="carousel_card_pr ">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+//             Delectus quos corporis aut quia temporibus, amet ab, quisquam dolorum at iusto
+//             officiis velit voluptatibus eum accusamus aspernatur.</p>
+//         <div class="card_bottom">
+//             <p>#Renovo</p>
 
-            <span> 14:45
-                22/02/23</span>
+//             <span> 14:45
+//                 22/02/23</span>
 
-        </div>
-     <div class="mt-3">
-     <button class="btn btn-warning product-edit"><img src="./images/edit.png" alt="edit">
-     </button>
-     <button class="btn btn-danger"> <img src="./images/delete.png" alt="delete"></button>
-     </div>
-    </div>
-</div>
-          `;
-  });
-};
+//         </div>
+//      <div class="mt-3">
+//      <button class="btn btn-warning product-edit"><img src="./images/edit.png" alt="edit">
+//      </button>
+//      <button class="btn btn-danger"> <img src="./images/delete.png" alt="delete"></button>
+//      </div>
+//     </div>
+// </div>
+//           `;
+//   });
+// };
 
-function getProducts() {
-  // const res = await fetch("http://10.10.0.224:5000/product", {
-  //   headers: {
-  //     Authorization: localData,
-  //   },
-  // });
-  // const data = await res.json();
-  // console.log(data);
-  renderProduct(productWood, elList);
-}
+// async function getProducts() {
+//   // const res = await fetch("https://burxondv.jprq.live/v1/product", {
+//   //   headers: {
+//   //     Authorization: localData,
+//   //   },
+//   // });
+//   // const data = await res.json();
+//   // console.log(data);
+//   renderProduct(data, elList);
+// }
 
-getProducts();
-function getNews() {
-  // const res = await fetch("http://10.10.0.224:5000/product", {
-  //   headers: {
-  //     Authorization: localData,
-  //   },
-  // });
-  // const data = await res.json();
-  // console.log(data);
-  renderNews(productWood, elListNews);
-}
+// getProducts();
+// function getNews() {
+//   // const res = await fetch("http://10.10.0.224:5000/product", {
+//   //   headers: {
+//   //     Authorization: localData,
+//   //   },
+//   // });
+//   // const data = await res.json();
+//   // console.log(data);
+//   // renderNews(productWood, elListNews);
+// }
 
-getNews();
+// getNews();
 
 elForm.addEventListener("submit", (evt) => {
   evt.preventDefault(elForm);
 
   const formData = new FormData();
-  formData.append("product_name", elNameInput.value);
-  formData.append("product_desc", elDescInput.value);
-  formData.append("product_img", elFileInput.files[0]);
-  formData.append("product_price", elPriceInput.value);
+  formData.append("name", elNameInput.value);
+  formData.append("title", elDescInput.value);
+  formData.append("image_url", elFileInput.files[0]);
+  formData.append("mark", elMark.value);
+  formData.append("price", elPriceInput.value);
+  console.log(formData);
 
-  fetch("http://10.10.0.224:5000/product", {
+  fetch("https://burxondv.jprq.live/v1/product", {
     method: "POST",
     headers: {
-      // "Content-Type": "application/json",
-      Authorization: localData,
+      "Content-Type": "application/json",
     },
     body: formData,
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data) {
-        getProducts();
-      }
+      console.log(data);
       renderProduct(data, elList);
     })
     .catch((err) => console.log(err));
+  console.log({
+    name: elNameInput.value,
+    title: elDescInput.value,
+    image_url: elFileInput.files[0],
+    mark: elMark.value,
+    price: elPriceInput.value,
+  });
 });
 
 const deleteProduct = (product_id) => {
@@ -190,31 +197,29 @@ elList.addEventListener("click", (evt) => {
     edit(productId);
   }
 });
-elListNews.addEventListener("click", (evt) => {
-  evt.preventDefault();
-  console.log(531531531);
-  if (evt.target.matches(".product-delete")) {
-    const productId = evt.target.dataset.todoId;
-    deleteProduct(productId);
-  }
-  // if (evt.target.matches(".product-edit")) {
-  //   const productId = evt.target.dataset.todoId;
-  //   console.log(productId);
-  //   elModal.style.display="flex"
-  //   edit(productId);
-  // }
+// elListNews.addEventListener("click", (evt) => {
+//   evt.preventDefault();
+//   console.log(531531531);
+//   if (evt.target.matches(".product-delete")) {
+//     const productId = evt.target.dataset.todoId;
+//     deleteProduct(productId);
+//   }
+//   // if (evt.target.matches(".product-edit")) {
+//   //   const productId = evt.target.dataset.todoId;
+//   //   console.log(productId);
+//   //   elModal.style.display="flex"
+//   //   edit(productId);
+//   // }
 
-  if (evt.target.matches(".product-edit")) {
-    elBody.classList.add("modalbtn");
-    const productId = evt.target.dataset.todoId;
+//   if (evt.target.matches(".product-edit")) {
+//     elBody.classList.add("modalbtn");
+//     const productId = evt.target.dataset.todoId;
 
-    elOverlay.style.display = "flex";
+//     elOverlay.style.display = "flex";
 
-    edit(productId);
-  }
-});
-
-
+//     edit(productId);
+//   }
+// });
 
 // admin \\
 // modal
@@ -229,11 +234,10 @@ const elAdminLogin = document.querySelector(".modal_admin");
 elAdminLogin.addEventListener("submit", (evt) => {
   evt.preventDefault();
   console.log({
-    name:elNameInput.value,
-    text:elDescInput.value,
-    file:elFileInput.value,
-    price:elPriceInput.value,
-    
+    name: elNameInput.value,
+    text: elDescInput.value,
+    file: elFileInput.value,
+    price: elPriceInput.value,
   });
 
   fetch("http://95.130.227.84:8075/api/v1/auth/sign-in", {
