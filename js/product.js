@@ -143,7 +143,7 @@ elBtns.addEventListener("click", (evt) => {
 const renderBuyBookmark = (array, node) => {
   node.innerHTML = "";
   let sum = 0;
-  let sumsAll = 0;
+  let sumsAll = 1;
 
   array.forEach((item) => {
     sum += +item.price;
@@ -178,6 +178,7 @@ const renderBuyBookmark = (array, node) => {
       evt.preventDefault();
       if (evt.target.matches(".plus")) {
         sumsAll += 1;
+        console.log(...bookmarkList);
       }
       if (evt.target.matches(".minus")) {
         if (sumsAll > 0) {
@@ -186,6 +187,8 @@ const renderBuyBookmark = (array, node) => {
       }
       newTextSum.innerHTML = sumsAll;
     });
+    newTextSum.innerHTML = sumsAll;
+
     // newImg.src = document.querySelector(".card-img")
     newImg.src = item.img;
     newImg.setAttribute("class", "newIMG");
@@ -202,7 +205,7 @@ const renderBuyBookmark = (array, node) => {
     newItem.appendChild(newDeleteButton);
     node.appendChild(newItem);
   });
-  const newSum = document.createElement("b");
+ newSum = document.createElement("b");
   node.appendChild(newSum);
   newSum.textContent = "All price = " + sum + "$";
 };
@@ -237,13 +240,14 @@ elBookmarkList.addEventListener("click", (evt) => {
 const buyBtn = document.querySelector(".buy");
 const buy = document.querySelector(".shop");
 buy.addEventListener("click", () => {
-  if (!bookmarkList.length) {
+  data =[...bookmarkList];
+  if (!bookmarkList.size) {
     buyBtn.disabled = true;
   } else {
     buyBtn.disabled = false;
   }
   buyBtn.addEventListener("click", () => {
     location.replace("buy.html");
-    localStorage.setItem("products", JSON.stringify(bookmarkList));
+    localStorage.setItem("products", JSON.stringify(data));
   });
 });

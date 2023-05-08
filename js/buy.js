@@ -10,5 +10,6 @@ data.forEach((element) => {
   Text.textContent = element.name
   newlist.appendChild(Img);
   newlist.appendChild(Text);
+  newlist.classList.add("newList");
   list.appendChild(newlist);
 });
