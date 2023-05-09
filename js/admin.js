@@ -1,9 +1,10 @@
-let elForm = document.querySelector('.js-form');
-let elNameInput = document.querySelector('.js-name');
-let elDescInput = document.querySelector('.js-desc');
-let elMark = document.querySelector('.js-mark');
-let elFileInput = document.querySelector('.js-file');
-let elPriceInput = document.querySelector('.js-price');
+let elForm = document.querySelector('.add_productForm');
+let elNameInput = document.querySelector('.js-namepr');
+let elDescInput = document.querySelector('.js-descpr');
+let elMark = document.querySelector('.js-markpr');
+let elFileInput = document.querySelector('.js-filepr');
+let elPriceInput = document.querySelector('.js-pricepr');
+
 let elBtnNew = document.querySelector('.js-newsBtn');
 let elProductNew = document.querySelector('.js-productsBtn');
 let elBtnAll = document.querySelector('.allBtn');
@@ -32,9 +33,9 @@ const renderProduct = (array, node) => {
             <p class="card-price ">${product.price}</p>
         </div>
         <div class="card-footer">
-        <button data-todo-id=${product.id} class="btn d-flex align-items-center product-edit text-white btn-warning"> <img src="./images/edit.png" alt="edit">Edit</a>
+        <button data-todo-id=${product.id} class="btn d-flex align-items-center product-edit text-white btn-warning"> <img data-todo-id=${product.id} class="product-edit" src="./images/edit.png" alt="edit">Edit</a>
         <button data-todo-id=${product.id} class="btn product-delete d-flex align-items-center btn-danger">
-        <img src="./images/delete.png" alt="delete">
+        <img class="product-delete "  data-todo-id=${product.id} src="./images/delete.png" alt="delete">
         Delete
         </a>
         </div>
@@ -69,15 +70,9 @@ const renderNews = (array, node) => {
 
         </div>
      <div class="mt-3 d-flex gap-3 ">
-     <button data-todo-id=${
-				news.id
-			} class="btn d-flex align-items-center news-edit text-white btn-warning"> <img src="./images/edit.png" alt="edit">Edit</a>
+     <button data-todo-id=${news.id} class="btn d-flex align-items-center news-edit text-white btn-warning"> <img data-todo-id=${news.id}  class="news-edit " src="./images/edit.png" alt="edit">Edit</a>
 
-     <button data-todo-id=${
-				news.id
-			} class="btn btn-danger news_delete"> <img data-todo-id=${
-			news.id
-		} class="news_delete" src="./images/delete.png" alt="delete"></button>
+     <button data-todo-id=${news.id} class="btn btn-danger news_delete"> <img data-todo-id=${news.id} class="news_delete" src="./images/delete.png" alt="delete"></button>
      </div>
     </div>
 </div>
@@ -100,7 +95,7 @@ async function getProducts() {
 }
 
 getProducts();
-// news started
+// get news
 async function getNews() {
 	const res = await fetch(
 		'https://ahrorbekolimjonov.jprq.live/v1/news?limit=10&page=1',
@@ -114,7 +109,6 @@ async function getNews() {
 	const data = await res.json();
 	renderNews(data, elListNews);
 }
-
 getNews();
 
 const elPostForm = document.querySelector('.admin_newsForm');
@@ -145,18 +139,32 @@ const upload = () => {
 	return url;
 };
 
-
-
-const date = '2023-05-08T13:56:33.123614Z';
-const time = date.split('T')[1].slice(0, 5);
-const localdate = date.split('T')[0];
-console.log(time);
-console.log(localdate);
+let urlpr = '';
+const uploadpr = () => {
+	const data = new FormData();
+	data.append('file', elFileInput.files[0]);
+	fetch('https://ahrorbekolimjonov.jprq.live/v1/file-upload', {
+		method: 'POST',
+		headers: {
+			Authorization: localData,
+		},
+		body: data,
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			if (data.filename) {
+				// console.log(data.filename);
+				urlpr = data.filename;
+				console.log('ichki', urlpr);
+				return urlpr;
+			}
+		});
+	return urlpr;
+};
 
 elPostForm.addEventListener('submit', function (evt) {
 	evt.preventDefault();
 	// https://ahrorbekolimjonov.jprq.live/v1/file-upload
-
 
 	fetch('https://ahrorbekolimjonov.jprq.live/v1/news', {
 		method: 'POST',
@@ -167,7 +175,41 @@ elPostForm.addEventListener('submit', function (evt) {
 		body: JSON.stringify({
 			title: postTitle.value,
 			description: postDesc.value,
-			image_url: upload(),
+			image_url: uploadpr(),
+		}),
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			console.log(data);
+			if (data) {
+				getNews();
+			}
+		})
+		.catch((err) => console.log(err));
+});
+
+elForm.addEventListener('submit', function (evt) {
+	evt.preventDefault();
+	console.log({
+		name: elNameInput.value,
+		title: elDescInput.value,
+		price: +elPriceInput.value,
+		image_url: uploadpr(),
+		mark: elMark.value,
+	});
+
+	fetch('https://ahrorbekolimjonov.jprq.live/v1/product', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: localData,
+		},
+		body: JSON.stringify({
+			name: elNameInput.value,
+			title: elDescInput.value,
+			price: +elPriceInput.value,
+			image_url: uploadpr(),
+			mark: elMark.value,
 		}),
 	})
 		.then((res) => res.json())
@@ -176,46 +218,12 @@ elPostForm.addEventListener('submit', function (evt) {
 			if (data) {
 				getProducts();
 			}
-			// renderProduct(data, elList);
 		})
 		.catch((err) => console.log(err));
-});
-
-elForm.addEventListener('submit', (evt) => {
-	evt.preventDefault(elForm);
-
-	const formData = new FormData();
-	formData.append('name', elNameInput.value);
-	formData.append('title', elDescInput.value);
-	formData.append('image_url', elFileInput.files[0]);
-	formData.append('mark', elMark.value);
-	formData.append('price', elPriceInput.value);
-	console.log(formData);
-
-	fetch('https://ahrorbekolimjonov.jprq.live/v1/product', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: formData,
-	})
-		.then((res) => res.json())
-		.then((data) => {
-			console.log(data);
-			renderProduct(data, elList);
-		})
-		.catch((err) => console.log(err));
-	console.log({
-		name: elNameInput.value,
-		title: elDescInput.value,
-		image_url: elFileInput.files[0],
-		mark: elMark.value,
-		price: elPriceInput.value,
-	});
 });
 
 const deleteProduct = (product_id) => {
-	fetch(`http://10.10.0.224:5000/product/${product_id}`, {
+	fetch(`https://ahrorbekolimjonov.jprq.live/v1/product/${product_id}`, {
 		method: 'DELETE',
 		headers: {
 			Authorization: localData,
@@ -229,22 +237,69 @@ const deleteProduct = (product_id) => {
 		})
 		.catch((err) => console.log(err));
 };
-const editProduct = (product_id) => {
-	const formData = new FormData();
-	formData.append('product_name', elNameInput.value);
-	formData.append('product_desc', elDescInput.value);
-	formData.append('product_img', elFileInput.files[0]);
-	formData.append('product_price', elPriceInput.value);
+const elAdminLogin = document.querySelector('.modal_admin');
 
-	fetch(`https://ahrorbekolimjonov.jprq.live/v1/news/${product_id}`, {
-		method: 'PUT',
+let elNameInputEdit = document.querySelector('.js-name');
+let elTitleInputEdit = document.querySelector('.js-title');
+
+let elMarkEdit = document.querySelector('.js-mark');
+let elFileInputEdit = document.querySelector('.js-file');
+let elPriceInputEdit = document.querySelector('.js-price');
+
+let urleditProduct = '';
+const uploadPrEdit = () => {
+	const data = new FormData();
+
+	data.append('file', elFileInputEdit.files[0]);
+	console.log(data);
+	fetch('https://ahrorbekolimjonov.jprq.live/v1/file-upload', {
+		method: 'POST',
 		headers: {
-			//   "Content-Type": "application/json",
 			Authorization: localData,
 		},
-		body: formData,
+		body: data,
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			if (data.filename) {
+				urleditProduct = data.filename;
+				return urleditProduct;
+			}
+		});
+	return urleditProduct;
+};
+const editProduct = (product_id) => {
+	elAdminLogin.addEventListener('submit', (evt) => {
+		evt.preventDefault();
+	
+		fetch(`https://ahrorbekolimjonov.jprq.live/v1/product`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: localData,
+			},
+			body: JSON.stringify({
+				name: elNameInputEdit.value,
+				mark: elMarkEdit.value,
+				title: elTitleInputEdit.value,
+				id: product_id,
+				price: +elPriceInputEdit.value,
+				image_url: uploadPrEdit(),
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				if(data){
+					elOverlay.style.display = 'none';
+					getProducts()
+
+				}
+			})
+			.catch((err) => console.log(err));
 	});
 };
+
 // delete news
 const deleteNews = (product_id) => {
 	fetch(`https://ahrorbekolimjonov.jprq.live/v1/news/${product_id}`, {
@@ -255,6 +310,8 @@ const deleteNews = (product_id) => {
 	})
 		.then((res) => res.json())
 		.then((data) => {
+			console.log(data);
+			getNews();
 			if (data) {
 				getNews();
 			}
@@ -270,8 +327,8 @@ let url2 = '';
 const upload2 = () => {
 	const data = new FormData();
 
-	data.append('file', postFile.files[0]);
-  console.log(data);
+	data.append('file', editPostFile.files[0]);
+	console.log(data);
 	fetch('https://ahrorbekolimjonov.jprq.live/v1/file-upload', {
 		method: 'POST',
 		headers: {
@@ -281,9 +338,7 @@ const upload2 = () => {
 	})
 		.then((res) => res.json())
 		.then((data) => {
-			console.log(data);
 			if (data.filename) {
-				// console.log(data.filename);
 				url2 = data.filename;
 				return url2;
 			}
@@ -291,29 +346,37 @@ const upload2 = () => {
 	return url2;
 };
 const editNews = (product_id) => {
+	newsFormedit.addEventListener('submit', (evt) => {
+		evt.preventDefault();
+		console.log({
+			title: editPostTitle.value,
+			description: editPostDesc.value,
+			id: product_id,
+			image_url: upload2(),
+		});
+		fetch(`https://ahrorbekolimjonov.jprq.live/v1/news`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: localData,
+			},
+			body: JSON.stringify({
+				title: editPostTitle.value,
+				description: editPostDesc.value,
+				id: product_id,
+				image_url: upload2(),
+			}),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				if (data) {
+					elNewsOverlay.style.display = 'none';
+					getNews();
+				}
+			})
+			.catch((err) => console.log(err));
+	});
 
-  newsFormedit.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    console.log({
-      title: editPostTitle.value,
-      description: editPostDesc.value,
-      id: product_id,
-      image_url: upload2(),
-    });
-    fetch(`https://ahrorbekolimjonov.jprq.live/v1/news`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: localData,
-      },
-      body: JSON.stringify({
-        title: editPostTitle.value,
-        description: editPostDesc.value,
-        id: product_id,
-        image_url: upload2(),
-      }),
-    }).then(res=>res.json()).then(data=>console.log(data)).catch(err =>console.log(err));
-  });
 };
 
 // edite news
@@ -328,46 +391,30 @@ const elClose = document.getElementById('product_edit');
 const elNewsClose = document.getElementById('news_edit');
 const newsFormedit = document.querySelector('.newsForm_edit');
 
-
 elList.addEventListener('click', (evt) => {
 	evt.preventDefault();
-	console.log(531531531);
+
 	if (evt.target.matches('.product-delete')) {
 		const productId = evt.target.dataset.todoId;
 		deleteProduct(productId);
 	}
 
-	// if (evt.target.matches(".product-edit")) {
-	//   const productId = evt.target.dataset.todoId;
-	//   console.log(productId);
-	//   elModal.style.display="flex"
-	//   edit(productId);
-	// }
-
 	if (evt.target.matches('.product-edit')) {
 		elBody.classList.add('modalbtn');
 		const productId = evt.target.dataset.todoId;
-
+		console.log(productId);
 		elOverlay.style.display = 'flex';
-
-		edit(productId);
+		editProduct(productId);
 	}
 	console.log(evt.target);
 });
+
 elListNews.addEventListener('click', (evt) => {
 	evt.preventDefault();
 	if (evt.target.matches('.news_delete')) {
-		console.dir(evt.target);
-		console.log(evt.target);
 		const productId = evt.target.dataset.todoId;
 		deleteNews(productId);
 	}
-	// if (evt.target.matches(".product-edit")) {
-	//   const productId = evt.target.dataset.todoId;
-	//   console.log(productId);
-	//   elModal.style.display="flex"
-	//   edit(productId);
-	// }
 
 	if (evt.target.matches('.news-edit')) {
 		const productId = evt.target.dataset.todoId;
@@ -379,33 +426,6 @@ elListNews.addEventListener('click', (evt) => {
 	}
 });
 
-// admin \\
-// modal
-
-const elAdminLogin = document.querySelector('.modal_admin');
-
-elAdminLogin.addEventListener('submit', (evt) => {
-	evt.preventDefault();
-	console.log({
-		name: elNameInput.value,
-		text: elDescInput.value,
-		file: elFileInput.value,
-		price: elPriceInput.value,
-	});
-
-	fetch('http://95.130.227.84:8075/api/v1/auth/sign-in', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(adminObj),
-	})
-		.then((res) => res.json())
-		.then((data) => {
-			console.log('data', data);
-		})
-		.catch((err) => console.log(err));
-});
 
 elClose.addEventListener('click', (evt) => {
 	evt.preventDefault();

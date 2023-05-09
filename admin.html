@@ -77,7 +77,7 @@
                 </div>
             </header>
 
-            <div class="overlay two_overlay">
+            <div class="overlay two_overlay product_overlay">
                 <div class="myWrapper">
                     <div class="modal_head">
                         <button class="js_close" id="product_edit"> X </button>
@@ -89,16 +89,18 @@
                                 <input type="text" name="name" class="js-name form-control" placeholder="Name">
                             </div>
                             <div class="mb-3">
-                                <!-- <input type="text" name="desc" class="form-control js-desc"> -->
-                                <textarea class="js-desc form-control" placeholder="Description"></textarea>
+                                <input type="text" name="name" class="js-title form-control" placeholder="Title">
+                            </div>
+                        
+                            <div class="mb-3">
+                                <input type="file" name="img" class="js-file form-control" onchange="uploadPrEdit()">
                             </div>
                             <div class="mb-3">
-                                <input type="file" name="img" class="js-file form-control">
+                                <input class="js-mark form-control" type="text" placeholder="Mark">
                             </div>
                             <div class="mb-3">
                                 <input class="js-price form-control" type="number" placeholder="Price">
                             </div>
-                            <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
                             <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Send
                                 message</button>
                         </form>
@@ -179,24 +181,23 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form class="add_productForm">
                                                 <div class="mb-3">
-                                                    <input type="text" name="name" class="js-name form-control"
+                                                    <input type="text" name="name" class="js-namepr form-control"
                                                         placeholder="Name">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <!-- <input type="text" name="desc" class="form-control js-desc"> -->
-                                                    <textarea class="js-desc form-control"
-                                                        placeholder="Description"></textarea>
+                                                    <input type="text" name="title" class="js-descpr form-control"
+                                                        placeholder="Title">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input type="file" name="img" class="js-file form-control">
+                                                    <input type="file" name="img" class="js-filepr form-control" onchange="uploadpr()">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input placeholder="Mark" type="text" name="img" class="js-mark form-control">
+                                                    <input placeholder="Mark" type="text" name="img" class="js-markpr form-control">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input class="js-price form-control" type="number"
+                                                    <input class="js-pricepr form-control" type="number"
                                                         placeholder="Price">
                                                 </div>
                                                 <button type="button" class="btn btn-secondary"
