@@ -1,5 +1,6 @@
 
-$('.last_slick').slick({
+
+$('.carousel_list').slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -47,3 +48,5 @@ $('.last_slick').slick({
   
   ]
   });
+
+  

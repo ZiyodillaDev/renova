@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="./slick-1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 
-
 </head>
 
 <body>
@@ -53,30 +52,10 @@
                         <a href="#service_section" class="link4" id="work">Услуги</a>
                         <a href="#news_section" class="link5" id="contact">Новости</a>
 
-                        <div class="dropdown">
-                            <!-- <span>Mouse over me</span> -->
                             <button class=" link5 js_admin " id="contact"><img src="./images/user.png"
                                     alt="user"></button>
-                            <div class="dropdown-content">
-                                <p>Ali</p>
-                                <p>90 9001505</p>
-                                <p>Hello World!</p>
-                            </div>
-                        </div>
-                        <!-- <div class="dropdown2">
-                            <span>Mouse over me</span> -->
-                            <!-- <button class="selected" id="contact">РУС <span>&or;</span></button>
-                            <div class="dropdown-content2 langs menu">
-                                <a class="lang lan1">АНГ</a>
-                                <a class="lang lan1">PYC</a>
-                                <a class="lang lan1">УЗБ</a>
-                            </div>
-                        </div> --> 
-                        <!-- <div class="langs menu">
-                            <a href="#" language="english" class="lang lang1 active">АНГ</a>
-                            <a href="#" language="russian" class="lang lang2">РУС</a>
-                            <a href="#" language="uzbek" class="lang lang3">УЗБ</a>
-                        </div> -->
+
+
                     </div>
                 </nav>
                 <div class="mobile">
@@ -90,18 +69,6 @@
                             <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
                             <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
                             <li class="nav__item">
-
-
-                                <div class="dropdown">
-                                    <!-- <span>Mouse over me</span> -->
-                                    <button class=" link5 js_admin " id="contact"><img src="./images/user.png"
-                                            alt="user"></button>
-                                    <div class="dropdown-content">
-                                        <p>Ali</p>
-                                        <p>90 9001505</p>
-                                        <p>Hello World!</p>
-                                    </div>
-                                </div>
 
 
                             </li>
@@ -430,7 +397,7 @@
             <div class="mycontainer">
                 <h2 class="about_title our_title news_section_title">НОВОСТИ И БЛОГИ</h2>
                 <ul class="last_slick  flexer">
-
+<!-- 
                     <li class=" last_slick_item">
                         <div class="wrapper">
                             <div class="carousel_top_img news_bg1">
@@ -509,7 +476,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
 
 
                 </ul>
@@ -575,20 +542,20 @@
             <h3>Admin page</h3>
             <form class="modal_admin">
                 <div class="user-box">
-                    <input type="email" class="admin_name" name="admin_name" required="Iltiomos ismingizni kiriting"
+                    <input type="email" class="admin_name" autocomplete="off"  name="admin_name" required
                         title="Ismingizni kiriting">
                     <label>Email</label>
                 </div>
                 <div class="user-box">
                     <input type="password" class="admin_parol" name="admin_parol"
-                        required="Iltiomos Parolingizni kiriting" title="Parolingizni kiriting">
+                        required autocomplete="off" title="Parolingizni kiriting">
                     <label>Password</label>
                 </div>
                 <button type="submit" class=" btn_send">Send</button>
             </form>
         </div>
     </div>
-    <a class="top" href="#"><img src="./images/up-arrow.png" alt="top"></a>
+    <a class="top toTop" href="#"><img src="./images/up-arrow.png" alt="top"></a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
@@ -598,6 +565,8 @@
     <script src="./js/lang.js"></script>
     <script src="./js/heroCarousel.js"></script>
     <script src="./js/main.js"></script>
+ <script src="./js/render.js"></script>
+
     <script>
         window.replainSettings = {
             id: 'ce551c95-f31b-4e13-8247-766deb5790e2'

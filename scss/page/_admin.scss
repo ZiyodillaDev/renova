@@ -11,3 +11,79 @@
     z-index: 999;
     margin-right: auto;
 }
+
+
+$gw-blue: rgb(52, 152, 219); /*#3498db  edit   */
+$gw-red: rgb(192, 57, 43); /*#c0392b  delete   */
+
+
+.button {
+  font-family:'Open Sans';
+  font-size: 16px;
+  font-weight:400;
+  color:#FFF;
+  border-radius: .25em;
+  text-shadow: -1px -1px 0px rgba(0,0,0,0.4);
+
+}
+
+
+
+ .touch:hover {
+  transform:scale(1.02);
+  box-shadow:2px 2px 5px rgba(0,0,0,0.20), inset 0 0 0 99999px rgba(0,0,0,0.2);
+}
+
+.touch {
+  transition:ease-in-out .2s;
+  line-height:40px;
+  width:40px;
+  padding: 0px;
+  text-align: center;
+}
+
+
+
+.edit:before, .delete:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size:1rem;
+  padding-right:12px;
+  background:none;
+  color:#FFF;
+  position: relative;
+  left: 15%;
+}
+
+
+.touch.edit:before, .touch.delete:before {
+  width:100%;
+  text-align:center !important;
+  font-size:1.25rem;
+
+}
+
+
+.edit {
+  background: $gw-blue;
+  
+  &:before {
+    content: "\f040";
+  }
+}
+
+.delete {
+  background: $gw-red;
+  
+  &:before {
+    content: "\f1f8";
+  }
+}
+
+.inlineIcon.delete:before {
+    color: $gw-red;
+}
+
+.adminCard{
+    min-width: 370px;
+}

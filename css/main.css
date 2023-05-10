@@ -54,6 +54,17 @@ body {
   filter: invert(65%) sepia(62%) saturate(7499%) hue-rotate(6deg) brightness(101%) contrast(94%);
 }
 
+.toTop {
+  opacity: 0;
+  bottom: 80px;
+}
+
+.backactive {
+  bottom: 100px;
+  pointer-events: auto;
+  opacity: 1;
+}
+
 footer {
   background-color: rgba(51, 51, 51, 0.7019607843) !important;
   padding: 30px 0;
@@ -191,7 +202,7 @@ header {
   align-items: center;
 }
 
-.menu > a {
+.menu > a, .link5 {
   color: #fff !important;
   text-decoration: none;
   margin-right: 50px;
@@ -204,7 +215,7 @@ header {
   font-weight: 700;
   transition: color 0.1s, background-color 0.1s, padding 0.2s ease-in;
 }
-.menu > a::before {
+.menu > a::before, .link5::before {
   content: "";
   display: block;
   position: absolute;
@@ -217,10 +228,10 @@ header {
   transform: scale(0, 1);
   transition: color 0.1s, transform 0.2s ease-out;
 }
-.menu > a:active::before {
+.menu > a:active::before, .link5:active::before {
   background-color: #ec6608 !important;
 }
-.menu > a:hover::before, .menu > a:focus::before {
+.menu > a:hover::before, .menu > a:focus::before, .link5:hover::before, .link5:focus::before {
   transform-origin: left top;
   transform: scale(1, 1);
 }
@@ -836,11 +847,6 @@ header {
     right: -40px;
   }
 }
-.becend_img {
-  width: 90px !important;
-  height: 100px !important;
-}
-
 #product_section {
   padding: 100px 0px;
 }
@@ -1513,6 +1519,69 @@ header {
   margin-right: auto;
 }
 
+/*#3498db  edit   */
+/*#c0392b  delete   */
+.button {
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 400;
+  color: #FFF;
+  border-radius: 0.25em;
+  text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.4);
+}
+
+.touch:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), inset 0 0 0 99999px rgba(0, 0, 0, 0.2);
+}
+
+.touch {
+  transition: ease-in-out 0.2s;
+  line-height: 40px;
+  width: 40px;
+  padding: 0px;
+  text-align: center;
+}
+
+.edit:before, .delete:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size: 1rem;
+  padding-right: 12px;
+  background: none;
+  color: #FFF;
+  position: relative;
+  left: 15%;
+}
+
+.touch.edit:before, .touch.delete:before {
+  width: 100%;
+  text-align: center !important;
+  font-size: 1.25rem;
+}
+
+.edit {
+  background: rgb(52, 152, 219);
+}
+.edit:before {
+  content: "\f040";
+}
+
+.delete {
+  background: rgb(192, 57, 43);
+}
+.delete:before {
+  content: "\f1f8";
+}
+
+.inlineIcon.delete:before {
+  color: rgb(192, 57, 43);
+}
+
+.adminCard {
+  min-width: 370px;
+}
+
 /* modal */
 .overlay {
   z-index: 10;
@@ -1586,7 +1655,7 @@ header {
 .myWrapper h3 {
   text-align: center;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 .myWrapper .user-box input {
