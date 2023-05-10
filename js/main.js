@@ -27,6 +27,8 @@ elClose.addEventListener('click', (evt) => {
 	elOverlay.style.display = 'none';
 });
 
+// Login
+
 const elAdminLogin = document.querySelector('.modal_admin');
 const adminName = document.querySelector('.admin_name');
 const adminParol = document.querySelector('.admin_parol');

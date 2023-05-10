@@ -648,24 +648,11 @@ header {
   max-width: 433px;
   height: 326px;
   backdrop-filter: blur(1px);
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  border-radius: 20px 20px 0px 0px;
 }
-
-.news_bg1 {
-  background: url(../../images/news1.jpg);
-  background-size: 100%;
-}
-
-.news_bg2,
-.news_bg4 {
-  background: url(../../images/news2.jpg);
-}
-
-.news_bg3 {
-  background: url(../../images/renova-why-us.jpg);
+.carousel_top_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card_carousel_body {
@@ -849,6 +836,11 @@ header {
     right: -40px;
   }
 }
+.becend_img {
+  width: 90px !important;
+  height: 100px !important;
+}
+
 #product_section {
   padding: 100px 0px;
 }
