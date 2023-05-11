@@ -11,7 +11,7 @@ ul.setAttribute("class", "carousel_list")
 flexer.appendChild(ul)
 
 const renderNews = (array, node) => {
-//   node.innerHTML = "";
+  // node.innerHTML = "";
   array.forEach((news) => {
     ul.innerHTML += `
     <li class=" last_slick_item">

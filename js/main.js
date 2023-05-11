@@ -1,9 +1,12 @@
 // backTop
 const toTop = document.querySelector(".toTop");
-
+const elIcons =document.querySelector(".media-icons")
 window.addEventListener("scroll", () => {
   if (window.pageYOffset > 300) {
     toTop.classList.add("backactive");
+  }else if(window.pageYOffset > 300){
+    console.log(elIcons);
+elIcons.style.top ="0"
   } else {
     toTop.classList.remove("backactive");
   }

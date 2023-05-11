@@ -1,6 +1,7 @@
 
 
-$('.carousel_list').slick({
+setInterval(() => {
+  $('.carousel_list').slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -48,5 +49,6 @@ $('.carousel_list').slick({
   
   ]
   });
+}, 3000);
 
   
