@@ -685,6 +685,8 @@ header {
   font-weight: 400;
   font-size: 18px;
   line-height: 19px;
+  padding-bottom: 15px;
+
   color: rgba(39, 39, 39, 0.7);
 }
 

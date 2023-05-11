@@ -3,8 +3,6 @@ let token = localStorage.getItem("token");
 const slicklist =document.querySelector(".slick-list ")
 const slicktrack =document.querySelector(".slick-track ")
 
-console.log(slicklist);
-
 const flexer = document.querySelector(".flexer");
 const ul =document.createElement("ul");
 ul.setAttribute("class", "carousel_list")
@@ -38,6 +36,7 @@ const renderNews = (array, node) => {
           `;
   });
 };
+const eltitle =document.querySelector(".myheading")
 
 async function getNews() {
     const res = await fetch("https://renova.jprq.live/v1/news?limit=10&page=1", {
@@ -52,6 +51,8 @@ async function getNews() {
     console.log("ishladi");
   }
   getNews();
+
+  flexer.children.length > 1 ?  (eltitle.style.display ="none"):eltitle.style.display ="block"
   
 
 

@@ -34,9 +34,9 @@ const renderProduct = (array, node) => {
             <p class="card-price ">${product.price}$</p>
         </div>
         <div class="card-footer d-flex gap-3">
-        <a data-todo-id=${product.id} class="product-edit button touch edit"></a>
-        <a data-todo-id=${product.id} class="product-delete button touch delete">
-       </a>
+        <button data-todo-id=${product.id} class="product-edit button btn btn-primary touch edit "></button>
+        <button data-todo-id=${product.id} class="product-delete button touch btn btn-danger delete">
+        </button>
         </div>
 </div>
 </div>

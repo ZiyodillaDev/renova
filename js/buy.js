@@ -6,7 +6,7 @@ data.forEach((element) => {
   const Img = document.createElement("img");
   const Text = document.createElement("h3")
   Img.classList.add("newImg")
-  Img.src = element.img;
+  Img.src = `http://${element.image_url}`;
   Text.textContent = element.name
    telegramSendInfo.push(element.name);
   newlist.appendChild(Img);
