@@ -47,8 +47,6 @@ async function getNews() {
     });
     const data = await res.json();
     renderNews(data, flexer);
-    console.log(data);
-    console.log("ishladi");
   }
   getNews();
 

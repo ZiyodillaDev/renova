@@ -26,7 +26,6 @@ var sendtelegram = function() {
         })
     };
     $.ajax(settings).done(function(response) {
-        console.log(response);
     });
     document.getElementById("name").value = "";
     document.getElementById("email").value = "";

@@ -15,4 +15,3 @@ data.forEach((element) => {
   list.appendChild(newlist);
 });
 
-console.log(telegramSendInfo);

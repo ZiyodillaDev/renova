@@ -18,7 +18,6 @@ if (!localData) {
 const renderProduct = (array, node) => {
   node.innerHTML = "";
   array.forEach((product) => {
-    console.log(product);
     node.innerHTML += `
     <div class="card mt-5 shadow" style="width: 18rem; height:370px;">
 
@@ -31,7 +30,8 @@ const renderProduct = (array, node) => {
                 <span class="rating-value ">${product.mark}</span>
                 <span class="star">&#9733;</span>
             </div>
-            <p class="card-price ">${product.price}$</p>
+            <p class="card-price "> id:${product.id}</p>
+            
         </div>
         <div class="card-footer d-flex gap-3">
         <button data-todo-id=${product.id} class="product-edit button btn btn-primary touch edit "></button>
@@ -98,7 +98,6 @@ async function getProducts() {
     }
   );
   const data = await res.json();
-  console.log(data);
   renderProduct(data, elList);
 }
 
@@ -133,9 +132,7 @@ const upload = () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.filename) {
-        // console.log(data.filename);
         url = data.filename;
         return url;
       }
@@ -157,9 +154,7 @@ const uploadpr = () => {
     .then((res) => res.json())
     .then((data) => {
       if (data.filename) {
-        // console.log(data.filename);
         urlpr = data.filename;
-        console.log("ichki", urlpr);
         return urlpr;
       }
     });
@@ -184,10 +179,8 @@ elPostForm.addEventListener("submit", function (evt) {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data) {
         getNews();
-        console.log(data);
         document.querySelector(".newsModal").style.display = "none";
       }
     })
@@ -198,13 +191,6 @@ elPostForm.addEventListener("submit", function (evt) {
 
 elForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  console.log({
-    name: elNameInput.value,
-    title: elDescInput.value,
-    price: +elPriceInput.value,
-    image_url: uploadpr(),
-    mark: elMark.value,
-  });
 
   fetch("https://renova.jprq.live/v1/product", {
     method: "POST",
@@ -222,7 +208,6 @@ elForm.addEventListener("submit", function (evt) {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data) {
         getProducts();
       }
@@ -263,7 +248,6 @@ const uploadPrEdit = () => {
   const data = new FormData();
 
   data.append("file", elFileInputEdit.files[0]);
-  console.log(data);
   fetch("https://renova.jprq.live/v1/file-upload", {
     method: "POST",
     headers: {
@@ -301,10 +285,8 @@ const editProduct = (product_id) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data) {
-          elOverlay.style.display = "none";
-          getProducts();
+location.reload()
         }
       })
       .catch((err) => console.log(err));
@@ -321,7 +303,6 @@ const deleteNews = (product_id) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       getNews();
       if (data) {
         getNews();
@@ -339,7 +320,6 @@ const upload2 = () => {
   const data = new FormData();
 
   data.append("file", editPostFile.files[0]);
-  console.log(data);
   fetch("https://renova.jprq.live/v1/file-upload", {
     method: "POST",
     headers: {
@@ -359,12 +339,7 @@ const upload2 = () => {
 const editNews = (product_id) => {
   newsFormedit.addEventListener("submit", (evt) => {
     evt.preventDefault();
-    console.log({
-      title: editPostTitle.value,
-      description: editPostDesc.value,
-      id: product_id,
-      image_url: upload2(),
-    });
+
     fetch(`https://renova.jprq.live/v1/news`, {
       method: "PUT",
       headers: {
@@ -413,11 +388,9 @@ elList.addEventListener("click", (evt) => {
   if (evt.target.matches(".product-edit")) {
     elBody.classList.add("modalbtn");
     const productId = evt.target.dataset.todoId;
-    console.log(productId);
     elOverlay.style.display = "flex";
     editProduct(productId);
   }
-  console.log(evt.target);
 });
 
 elListNews.addEventListener("click", (evt) => {
@@ -429,7 +402,6 @@ elListNews.addEventListener("click", (evt) => {
 
   if (evt.target.matches(".news-edit")) {
     const productId = evt.target.dataset.todoId;
-    console.log("productId", productId);
     elNewsOverlay.style.display = "flex";
     editNews(productId);
   } else {
@@ -445,7 +417,6 @@ elClose.addEventListener("click", (evt) => {
 
 elNewsClose.addEventListener("click", (evt) => {
   evt.preventDefault();
-  console.log("asdfgnm");
   elNewsOverlay.style.display = "none";
 });
 // elListNews
