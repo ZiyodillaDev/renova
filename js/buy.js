@@ -15,3 +15,6 @@ data.forEach((element) => {
   list.appendChild(newlist);
 });
 
+const elNumber =document.getElementById("number")
+
+console.log(elNumber.value ="+998");
