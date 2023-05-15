@@ -160,8 +160,6 @@ footer {
 }
 .production_box p {
   font-size: 22px;
-  color: #fff;
-
 }
 .production_box span {
   font-size: 20px;
@@ -550,7 +548,7 @@ header {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
     margin-bottom: 20px;
   }
   .about_right, .left_content2 {
@@ -687,8 +685,6 @@ header {
   font-weight: 400;
   font-size: 18px;
   line-height: 19px;
-  padding-bottom: 15px;
-
   color: rgba(39, 39, 39, 0.7);
 }
 
@@ -892,7 +888,7 @@ header {
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
-  height: 35px;
+  height: 40px;
   line-height: 34px;
   margin-left: auto;
   margin-right: 10px;
@@ -1254,18 +1250,6 @@ header {
   box-shadow: inset 14.5em 0 0 0 #ec6608;
 }
 
-.home .media-icons {
-  z-index: 888;
-  position: fixed;
-  right: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s ease;
-  gap: 25px;
-}
-
 .home .media-icons a {
   color: #5f5f5f;
   font-size: 1.6em;
@@ -1356,7 +1340,7 @@ header {
 }
 @media (max-width: 617px) {
   .infoBtn,
-  .productBtn {
+.productBtn {
     font-size: 0.9em !important;
     padding: 15px 25px;
   }
@@ -1389,7 +1373,7 @@ header {
     flex-direction: column;
   }
   .infoBtn,
-  .productBtn {
+.productBtn {
     max-width: 200px !important;
     width: 100%;
   }
@@ -1826,7 +1810,7 @@ body {
 .form_label {
   position: absolute;
   left: 1em;
-  top: 0.7rem;
+  top: 1em;
   padding: 0 0.25em;
   background-color: #fff;
   color: #80868b;

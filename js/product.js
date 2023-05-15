@@ -28,6 +28,13 @@ function fetchData() {
 						bookmarkList.add(findedProduct);
 						renderBuyBookmark(bookmarkList, elBookmarkList);
 						elCount.innerHTML = sums;
+						setInterval(() => {
+							if(bookmarkList.size == 0){
+								elCount.innerHTML =""
+								sums = 0
+							}
+							
+						}, 1000);
 					}
 				});
 				// renderBuyBookmark(res, elBookmarkList);
@@ -233,3 +240,6 @@ buy.addEventListener('click', () => {
 		localStorage.setItem('allsum', JSON.stringify(sum));
 	});
 });
+
+
+

@@ -10,6 +10,8 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 </head>
 
 <body>
@@ -53,7 +55,7 @@
     <section class="buy_section">
         <div class="container">
             <h2>Платежная информация</h2>
-            <form  onsubmit=" return sendtelegram()">
+            <form class="js-form"  onsubmit=" return sendtelegram()">
                 <div class="row gap-5">
                     <div class="left col-8 bg-white rounded p-4">
                         <p class="text-black-50 fw-semibold ps-2">ФИО<span class="text-danger">*</span></p>
@@ -167,27 +169,7 @@
             </div>
         </div>
     </footer>
-    <div class="overlay">
-        <div class="myWrapper">
-            <div class="modal_head">
-                <button class="js_close"> X </button>
-            </div>
-            <h3>Admin page</h3>
-            <form class="modal_admin">
-                <div class="user-box">
-                    <input type="email" class="admin_name" autocomplete="off"  name="admin_name" required
-                        title="Ismingizni kiriting">
-                    <label>Email</label>
-                </div>
-                <div class="user-box">
-                    <input type="password" class="admin_parol" name="admin_parol"
-                        required autocomplete="off" title="Parolingizni kiriting">
-                    <label>Password</label>
-                </div>
-                <button type="submit" class=" btn_send">Send</button>
-            </form>
-        </div>
-    </div>
+
     <script>
         window.replainSettings = {
             id: 'ce551c95-f31b-4e13-8247-766deb5790e2'
@@ -203,6 +185,8 @@
     <script src="./js/product.js"></script>
     <script src="./js/buy.js"></script>
     <script src="./js/sendtelegram.js"></script>
+    <script src="./js/tostify.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
