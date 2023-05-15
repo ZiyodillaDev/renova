@@ -363,7 +363,9 @@ const editNews = (product_id) => {
 			.then((data) => {
 				if (data) {
 					elNewsOverlay.style.display = 'none';
-					getNews();
+					// getNews();
+					console.log(data);
+					// location.reload();
 				}
 			})
 			.catch((err) => console.log(err));
