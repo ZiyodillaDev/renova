@@ -31,5 +31,7 @@ var sendtelegram = function() {
     document.getElementById("email").value = "";
     document.getElementById("number").value = "";
     document.getElementById("address").value = "";
+    location.replace("index.html")
+    
     return false;
 };

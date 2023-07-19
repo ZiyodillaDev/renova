@@ -10,36 +10,43 @@
     <link rel="stylesheet" href="./slick-1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="./slick-1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
 </head>
 
 <body>
+
+    <div class="loader_bg">
+        <div class="loader"></div>
+    </div>
     <div class="overlay">
         <div class="myWrapper">
             <div class="modal_head">
                 <button class="js_close"> X </button>
             </div>
-            <h3>Admin page</h3>
+            <h3>Логин</h3>
             <form class="modal_admin">
                 <div class="user-box">
-                    <input type="email" class="admin_name" name="admin_name" required="Iltiomos ismingizni kiriting"
-                        title="Ismingizni kiriting">
-                    <label>Email</label>
+                    <input type="email" class="admin_name" name="admin_name" title="Введите адрес электронной почты"
+                        autocomplete="off">
+                    <label>Электронная почта</label>
                 </div>
-                <div class="user-box">
-                    <input type="password" class="admin_parol" name="admin_parol"
-                        required="Iltiomos Parolingizni kiriting" title="Parolingizni kiriting">
-                    <label>Password</label>
+                <div class="user-box pass">
+                    <input type="password" class="admin_parol" name="admin_parol" title="Введите пароль"
+                        autocomplete="off">
+                    <label>Пароль</label>
+                    <div class="eye"><img src="images/eye.png" alt="eye"></div>
                 </div>
-                <button type="submit" class=" btn_send">Send</button>
+                <button type="submit" class=" btn_send">Войти</button>
             </form>
         </div>
     </div>
-
     <header>
         <div class="container">
             <div class="all_heads">
-                <div>
+                <div class="logoDiv">
                     <a href="index.html" id="logo">
                         <img class="logo" src="./images/logo.png" alt="logo">
                     </a>
@@ -52,12 +59,20 @@
                         <a href="#service_section" class="link4" id="work">Услуги</a>
                         <a href="#news_section" class="link5" id="contact">Новости</a>
 
-                            <button class=" link5 js_admin " id="contact"><img src="./images/user.png"
-                                    alt="user"></button>
+                        <button class=" link5 js_admin " id="contact"><img src="./images/user.png" alt="user"></button>
 
-
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">РУС
+                            </button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a language="english" class="lang lang1" href="#">АНГ</a>
+                                <a language="russian" class="lang lang2" href="#">РУС</a>
+                                <a language="uzbek" class="lang lang3" href="#">УЗБ</a>
+                            </div>
+                        </div>
                     </div>
                 </nav>
+
                 <div class="mobile">
                     <input type="checkbox" id="active">
                     <label for="active" class="menu_btn" id="menuBtn"><i class="fas fa-bars"></i></label>
@@ -68,22 +83,26 @@
                             <li><a href="#product_section" class="link3" id="service">Продукты</a></li>
                             <li><a href="#service_section" class="link4" id="work">Услуги</a></li>
                             <li><a href="#news_section" class="link5" id="contact">Новости</a></li>
-                            <li class="nav__item">
-
-
-                            </li>
                         </ul>
                     </div>
 
                 </div>
-
+                <div style="display: none;" class="dropdown sec">
+                    <button onclick="myFunction2()" class="dropbtn">РУС
+                    </button>
+                    <div id="myDropdown2" class="dropdown-content">
+                        <a language="english" class="lang lang1" href="#">АНГ</a>
+                        <a language="russian" class="lang lang2" href="#">РУС</a>
+                        <a language="uzbek" class="lang lang3" href="#">УЗБ</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
     <main>
         <section class="home">
-            <video class="video-slide active"
+            <video class="video-slide"
                 src="https://www.renova-srl.com/wp-content/uploads/video-home-brakes-and-clutches.webm" autoplay muted
                 loop></video>
             <video class="video-slide"
@@ -92,13 +111,13 @@
             <video class="video-slide"
                 src="https://www.renova-srl.com/wp-content/uploads/video-home-material-handling-equipment.mp4" autoplay
                 muted loop></video>
-            <div class="content active">
+            <div class="content">
                 <h2 class="content__desc content__desc1">ПЕРЕРАБОТКА МАТЕРИАЛОВ</h2>
                 <p class="content__text content__text1">Линейка погрузочно-разгрузочного оборудования, позволяющая
                     операторам плавно и безопасно перемещать тяжелые грузы</p>
                 <div class="buttons">
                     <a class="infoBtn" href="#about_section">Читать больше</a>
-                    <a class="productBtn" href="product.html">Наши продукты</a>
+                    <a class="productBtn allProd" href="product.html">Наши продукты</a>
                 </div>
             </div>
             <div class="content">
@@ -106,8 +125,8 @@
                 <p class="content__text content__text2">Высококачественные продукты с службой доставки и бесплатным
                     ремонтом, если он поврежден до даты гарантии</p>
                 <div class="buttons">
-                    <a class="infoBtn" href="#">Читать больше</a>
-                    <a class="productBtn" href="#">Наши продукты</a>
+                    <a class="infoBtn" href="#about_section">Читать больше</a>
+                    <a class="productBtn allProd" href="product.html">Наши продукты</a>
                 </div>
             </div>
             <div class="content">
@@ -116,18 +135,18 @@
                     постоянными распродажами каждую неделю
                 </p>
                 <div class="buttons">
-                    <a class="infoBtn" href="#">Читать больше</a>
-                    <a class="productBtn" href="#">Наши продукты</a>
+                    <a class="infoBtn" href="#about_section">Читать больше</a>
+                    <a class="productBtn allProd" href="product.html">Наши продукты</a>
                 </div>
             </div>
 
-            <div class="media-icons">
+            <!-- <div class="media-icons">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-telegram-plane"></i></a>
-            </div>
+            </div> -->
             <div class="slider-navigation">
-                <div class="nav-btn active"></div>
+                <div class="nav-btn "></div>
                 <div class="nav-btn"></div>
                 <div class="nav-btn"></div>
             </div>
@@ -232,11 +251,9 @@
                             <div class="card_content">
                                 <h3 class="text text1">Какие двери вы хотите. У нас вы можете найти двери из разных
                                     материалов в хорошем качестве</h3>
-                                <button class="click-view" id="click_view">
-                                    <a href="./product.html" rel="noopener noreferrer" class="link_portfolio">
-                                        Cмотреть
-                                    </a>
-                                </button>
+                                <a href="./product.html" class="link_portfolio firstProd">
+                                    Cмотреть
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -247,11 +264,9 @@
                                 <h3 class="text text2"> Какой лес вы хотите. Здесь вы можете найти древесину, которая
                                     сделана из разных продуктов
                                 </h3>
-                                <button class="click-view" id="click_view">
-                                    <a href="./product.html" rel="noopener noreferrer" class="link_portfolio">
-                                        Cмотреть
-                                    </a>
-                                </button>
+                                <a href="./product.html" class="link_portfolio secondProd">
+                                    Cмотреть
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -261,11 +276,9 @@
                             <div class="card_content">
                                 <h3 class="text text3">Какие инструменты вы хотите. Здесь вы можете найти инструменты,
                                     изготовленные из различных материалов высокого качества</h3>
-                                <button class="click-view" id="click_view">
-                                    <a href="./product.html" rel="noopener noreferrer" class="link_portfolio">
-                                        Cмотреть
-                                    </a>
-                                </button>
+                                <a href="./product.html" class="link_portfolio thirdProd">
+                                    Cмотреть
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -275,11 +288,9 @@
                             <div class="card_content">
                                 <h3 class="text text4">Тип документов, которые вы хотите. Здесь вы можете найти
                                     различные материалы Papers в высоком качестве</h3>
-                                <button class="click-view" id="click_view">
-                                    <a href="./product.html" rel="noopener noreferrer" class="link_portfolio">
-                                        Cмотреть
-                                    </a>
-                                </button>
+                                <a href="./product.html" class="link_portfolio fourthProd">
+                                    Cмотреть
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -289,11 +300,9 @@
                             <div class="card_content">
                                 <h3 class="text text5">Какой паз вы хотите. Здесь вы можете найти различные канавки из
                                     высококачественных материалов</h3>
-                                <button class="click-view" id="click_view">
-                                    <a href="./product.html" rel="noopener noreferrer" class="link_portfolio">
-                                        Cмотреть
-                                    </a>
-                                </button>
+                                <a href="./product.html" class="link_portfolio fifthProd">
+                                    Cмотреть
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -303,11 +312,9 @@
                             <div class="card_content">
                                 <h3 class="text text6">Тип сборки, который вы хотите. Здесь вы можете найти сборки из
                                     различных материалов высокого качества</h3>
-                                <button class="click-view" id="click_view">
-                                    <a href="./product.html" rel="noopener noreferrer" class="link_portfolio">
-                                        Cмотреть
-                                    </a>
-                                </button>
+                                <a href="./product.html" class="link_portfolio sixthProd">
+                                    Cмотреть
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -326,7 +333,7 @@
                         <div class="articleInfo">
                             <div class="articleIcon">
                                 <svg class="service_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                                    <path fill="#ec6608"
+                                    <path fill="#F09312"
                                         d="M308.5 135.3c7.1-6.3 9.9-16.2 6.2-25c-2.3-5.3-4.8-10.5-7.6-15.5L304 89.4c-3-5-6.3-9.9-9.8-14.6c-5.7-7.6-15.7-10.1-24.7-7.1l-28.2 9.3c-10.7-8.8-23-16-36.2-20.9L199 27.1c-1.9-9.3-9.1-16.7-18.5-17.8C173.9 8.4 167.2 8 160.4 8h-.7c-6.8 0-13.5 .4-20.1 1.2c-9.4 1.1-16.6 8.6-18.5 17.8L115 56.1c-13.3 5-25.5 12.1-36.2 20.9L50.5 67.8c-9-3-19-.5-24.7 7.1c-3.5 4.7-6.8 9.6-9.9 14.6l-3 5.3c-2.8 5-5.3 10.2-7.6 15.6c-3.7 8.7-.9 18.6 6.2 25l22.2 19.8C32.6 161.9 32 168.9 32 176s.6 14.1 1.7 20.9L11.5 216.7c-7.1 6.3-9.9 16.2-6.2 25c2.3 5.3 4.8 10.5 7.6 15.6l3 5.2c3 5.1 6.3 9.9 9.9 14.6c5.7 7.6 15.7 10.1 24.7 7.1l28.2-9.3c10.7 8.8 23 16 36.2 20.9l6.1 29.1c1.9 9.3 9.1 16.7 18.5 17.8c6.7 .8 13.5 1.2 20.4 1.2s13.7-.4 20.4-1.2c9.4-1.1 16.6-8.6 18.5-17.8l6.1-29.1c13.3-5 25.5-12.1 36.2-20.9l28.2 9.3c9 3 19 .5 24.7-7.1c3.5-4.7 6.8-9.5 9.8-14.6l3.1-5.4c2.8-5 5.3-10.2 7.6-15.5c3.7-8.7 .9-18.6-6.2-25l-22.2-19.8c1.1-6.8 1.7-13.8 1.7-20.9s-.6-14.1-1.7-20.9l22.2-19.8zM112 176a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM504.7 500.5c6.3 7.1 16.2 9.9 25 6.2c5.3-2.3 10.5-4.8 15.5-7.6l5.4-3.1c5-3 9.9-6.3 14.6-9.8c7.6-5.7 10.1-15.7 7.1-24.7l-9.3-28.2c8.8-10.7 16-23 20.9-36.2l29.1-6.1c9.3-1.9 16.7-9.1 17.8-18.5c.8-6.7 1.2-13.5 1.2-20.4s-.4-13.7-1.2-20.4c-1.1-9.4-8.6-16.6-17.8-18.5L583.9 307c-5-13.3-12.1-25.5-20.9-36.2l9.3-28.2c3-9 .5-19-7.1-24.7c-4.7-3.5-9.6-6.8-14.6-9.9l-5.3-3c-5-2.8-10.2-5.3-15.6-7.6c-8.7-3.7-18.6-.9-25 6.2l-19.8 22.2c-6.8-1.1-13.8-1.7-20.9-1.7s-14.1 .6-20.9 1.7l-19.8-22.2c-6.3-7.1-16.2-9.9-25-6.2c-5.3 2.3-10.5 4.8-15.6 7.6l-5.2 3c-5.1 3-9.9 6.3-14.6 9.9c-7.6 5.7-10.1 15.7-7.1 24.7l9.3 28.2c-8.8 10.7-16 23-20.9 36.2L315.1 313c-9.3 1.9-16.7 9.1-17.8 18.5c-.8 6.7-1.2 13.5-1.2 20.4s.4 13.7 1.2 20.4c1.1 9.4 8.6 16.6 17.8 18.5l29.1 6.1c5 13.3 12.1 25.5 20.9 36.2l-9.3 28.2c-3 9-.5 19 7.1 24.7c4.7 3.5 9.5 6.8 14.6 9.8l5.4 3.1c5 2.8 10.2 5.3 15.5 7.6c8.7 3.7 18.6 .9 25-6.2l19.8-22.2c6.8 1.1 13.8 1.7 20.9 1.7s14.1-.6 20.9-1.7l19.8 22.2zM464 304a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
                                 </svg>
                             </div>
@@ -342,7 +349,7 @@
                         <div class="articleInfo">
                             <div class="articleIcon">
                                 <svg class="service_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                                    <path fill="#ec6608"
+                                    <path fill="#F09312"
                                         d="M112 0C85.5 0 64 21.5 64 48V96H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 272c8.8 0 16 7.2 16 16s-7.2 16-16 16H64 48c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 240c8.8 0 16 7.2 16 16s-7.2 16-16 16H64 16c-8.8 0-16 7.2-16 16s7.2 16 16 16H64 208c8.8 0 16 7.2 16 16s-7.2 16-16 16H64V416c0 53 43 96 96 96s96-43 96-96H384c0 53 43 96 96 96s96-43 96-96h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V288 256 237.3c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7H416V48c0-26.5-21.5-48-48-48H112zM544 237.3V256H416V160h50.7L544 237.3zM160 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm272 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z" />
                                 </svg>
 
@@ -359,7 +366,7 @@
                         <div class="articleInfo">
                             <div class="articleIcon">
                                 <svg class="service_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                                    <path fill="#ec6608"
+                                    <path fill="#F09312"
                                         d="M272.2 64.6l-51.1 51.1c-15.3 4.2-29.5 11.9-41.5 22.5L153 161.9C142.8 171 129.5 176 115.8 176H96V304c20.4 .6 39.8 8.9 54.3 23.4l35.6 35.6 7 7 0 0L219.9 397c6.2 6.2 16.4 6.2 22.6 0c1.7-1.7 3-3.7 3.7-5.8c2.8-7.7 9.3-13.5 17.3-15.3s16.4 .6 22.2 6.5L296.5 393c11.6 11.6 30.4 11.6 41.9 0c5.4-5.4 8.3-12.3 8.6-19.4c.4-8.8 5.6-16.6 13.6-20.4s17.3-3 24.4 2.1c9.4 6.7 22.5 5.8 30.9-2.6c9.4-9.4 9.4-24.6 0-33.9L340.1 243l-35.8 33c-27.3 25.2-69.2 25.6-97 .9c-31.7-28.2-32.4-77.4-1.6-106.5l70.1-66.2C303.2 78.4 339.4 64 377.1 64c36.1 0 71 13.3 97.9 37.2L505.1 128H544h40 40c8.8 0 16 7.2 16 16V352c0 17.7-14.3 32-32 32H576c-11.8 0-22.2-6.4-27.7-16H463.4c-3.4 6.7-7.9 13.1-13.5 18.7c-17.1 17.1-40.8 23.8-63 20.1c-3.6 7.3-8.5 14.1-14.6 20.2c-27.3 27.3-70 30-100.4 8.1c-25.1 20.8-62.5 19.5-86-4.1L159 404l-7-7-35.6-35.6c-5.5-5.5-12.7-8.7-20.4-9.3C96 369.7 81.6 384 64 384H32c-17.7 0-32-14.3-32-32V144c0-8.8 7.2-16 16-16H56 96h19.8c2 0 3.9-.7 5.3-2l26.5-23.6C175.5 77.7 211.4 64 248.7 64H259c4.4 0 8.9 .2 13.2 .6zM544 320V176H496c-5.9 0-11.6-2.2-15.9-6.1l-36.9-32.8c-18.2-16.2-41.7-25.1-66.1-25.1c-25.4 0-49.8 9.7-68.3 27.1l-70.1 66.2c-10.3 9.8-10.1 26.3 .5 35.7c9.3 8.3 23.4 8.1 32.5-.3l71.9-66.4c9.7-9 24.9-8.4 33.9 1.4s8.4 24.9-1.4 33.9l-.8 .8 74.4 74.4c10 10 16.5 22.3 19.4 35.1H544zM64 336a16 16 0 1 0 -32 0 16 16 0 1 0 32 0zm528 16a16 16 0 1 0 0-32 16 16 0 1 0 0 32z" />
                                 </svg>
 
@@ -377,7 +384,7 @@
                             <div class="articleIcon">
 
                                 <svg class="service_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                    <path fill="#ec6608"
+                                    <path fill="#F09312"
                                         d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
                                 </svg>
 
@@ -395,12 +402,13 @@
         </section>
         <section id="news_section">
             <div class="mycontainer">
-                <h2 class="about_title our_title news_section_title">НОВОСТИ  И  БЛОГИ</h2>
+                <h2 class="about_title our_title news_section_title">НОВОСТИ И БЛОГИ</h2>
                 <ul class="last_slick  flexer">
 
 
-                    <h1 class="myheading" style="text-align: center; font-weight: 600; color: orangered;">Yangiliklar yo'q 🤨</h1>
- 
+                    <h1 class="myheading" style="text-align: center; font-weight: 600; color: orangered;">Yangiliklar
+                        yo'q 🤨</h1>
+
                 </ul>
             </div>
         </section>
@@ -423,20 +431,19 @@
                     <h3 class="pages__desc">Страницы</h3>
                     <div class="menu">
                         <a class="pages__link1" href="#">Главная</a>
-                        <a class="pages__link2" href="#about">О компании</a>
-                        <a class="pages__link3" href="#popular">Продукты</a>
-                        <a class="pages__link4" href="#form">Услуги</a>
-                        <a class="pages__link5" href="#form">Новости</a>
+                        <a class="pages__link2" href="#about_section">О компании</a>
+                        <a class="pages__link3" href="#product_section">Продукты</a>
+                        <a class="pages__link4" href="#service_section">Услуги</a>
+                        <a class="pages__link5" href="#news_section">Новости</a>
                     </div>
                 </div>
                 <div class="contact">
                     <h5 class="contact__desc service__desc">Услуги</h5>
                     <div class="menu">
-                        <a class="service__link1" href="#">Студенческая виза</a>
-                        <a class="service__link2" href="#">Иммиграция</a>
-                        <a class="service__link3" href="#">Супружеская виза</a>
-                        <a class="service__link4" href="#">Гостевая виза</a>
-                        <a class="service__link5" href="#">Kpaткocpoчнaя виза</a>
+                        <a class="service__link1" href="#">Сервисный центр</a>
+                        <a class="service__link2" href="#">Логистика</a>
+                        <a class="service__link3" href="#">Гарантия</a>
+                        <a class="service__link4" href="#">Установить</a>
                     </div>
                 </div>
                 <div class="contact">
@@ -451,32 +458,11 @@
             </div>
             <div class="foter_line"></div>
             <div class="production_box">
-                <p>Made with🧡 in Astrolab Company, Tashkent, Uzbekistan</p>
-                <span></span>
+                Made with <img class="heart" src="./images/heart.png" alt="heart"> in Astrolab Company, Uzbekistan
             </div>
         </div>
     </footer>
-    <div class="overlay">
-        <div class="myWrapper">
-            <div class="modal_head">
-                <button class="js_close"> X </button>
-            </div>
-            <h3>Admin page</h3>
-            <form class="modal_admin">
-                <div class="user-box">
-                    <input type="email" class="admin_name" autocomplete="off"  name="admin_name" required
-                        title="Ismingizni kiriting">
-                    <label>Email</label>
-                </div>
-                <div class="user-box">
-                    <input type="password" class="admin_parol" name="admin_parol"
-                        required autocomplete="off" title="Parolingizni kiriting">
-                    <label>Password</label>
-                </div>
-                <button type="submit" class=" btn_send">Send</button>
-            </form>
-        </div>
-    </div>
+
     <a class="top toTop" href="#"><img src="./images/up-arrow.png" alt="top"></a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
@@ -484,10 +470,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./slick-1.8.1/slick/slick.js"></script>
     <script src="./js/carousel.js"></script>
-    <script src="./js/lang.js"></script>
     <script src="./js/heroCarousel.js"></script>
     <script src="./js/main.js"></script>
- <script src="./js/render.js"></script>
+    <script src="./js/lang.js"></script>
+    <script src="./js/render.js"></script>
 
     <script>
         window.replainSettings = {

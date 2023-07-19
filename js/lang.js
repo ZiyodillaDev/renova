@@ -1,4 +1,5 @@
 let langs = document.querySelector(".langs");
+let dropbtn = document.querySelectorAll(".dropbtn");
 let link = document.querySelectorAll(".lang");
 let lang1 = document.querySelector(".lang1");
 let lang2 = document.querySelector(".lang2");
@@ -54,15 +55,33 @@ let service__link1 = document.querySelector(".service__link1");
 let service__link2 = document.querySelector(".service__link2");
 let service__link3 = document.querySelector(".service__link3");
 let service__link4 = document.querySelector(".service__link4");
-let service__link5 = document.querySelector(".service__link5");
+
+// lang
+
+const toggleToolbar = document.querySelectorAll(".toggle-toolbar");
+const stickyToolbarContainer = document.querySelector(
+  ".sticky-toolbar-container"
+);
+
+toggleToolbar.forEach(function (element) {
+  element.addEventListener("click", function () {
+    stickyToolbarContainer.classList.toggle("show-toolbar");
+  });
+});
+
+const LangBtns = document.querySelectorAll(".langBtn");
+
+LangBtns.forEach((element) => {
+  element.addEventListener("click", function () {
+    stickyToolbarContainer.classList.remove("show-toolbar");
+  });
+});
+
 
 link.forEach((el) => {
   el.addEventListener("click", () => {
-    langs.querySelector(".active").classList.remove("active");
-    el.classList.add("active");
 
-    let attr = el.getAttribute("language");
-
+    let attr = el.getAttribute("language"); 
     lang1.textContent = data[attr].lang1;
     lang2.textContent = data[attr].lang2;
     lang3.textContent = data[attr].lang3;
@@ -77,6 +96,9 @@ link.forEach((el) => {
     contentText2.textContent = data[attr].contentText2;
     contentDesc3.textContent = data[attr].contentDesc3;
     contentText3.textContent = data[attr].contentText3;
+    dropbtn.forEach((element) => {
+      element.textContent = data[attr].dropbtn;
+    });
     infoBtn.forEach((element) => {
       element.textContent = data[attr].infoBtn;
     });
@@ -124,16 +146,17 @@ link.forEach((el) => {
     service__link2.textContent = data[attr].service__link2;
     service__link3.textContent = data[attr].service__link3;
     service__link4.textContent = data[attr].service__link4;
-    service__link5.textContent = data[attr].service__link5;
     contacts_desc.textContent = data[attr].contacts_desc;
   });
 });
 
+
 let data = {
   uzbek: {
+    dropbtn: "UZB",
     lang1: "ING",
     lang2: "RUS",
-    lang3: "O'ZB",
+    lang3: "O'Z",
     link1: "Asosiy",
     link2: "Haqida",
     link3: "Mahsulotlar",
@@ -191,11 +214,10 @@ let data = {
     pages__link4: "Xizmatlar",
     pages__link5: "Yangiliklar",
     service__desc: "Xizmatlar",
-    service__link1: "Student Viza",
-    service__link2: "Immigratsiya",
-    service__link3: "Turmush Viza",
-    service__link4: "Mehmon Viza",
-    service__link5: "Oz muddatli Viza",
+    service__link1: "Xizmat ko'rsatish",
+    service__link2: "Logistika",
+    service__link3: "Kafolat",
+    service__link4: "O'rnatish",
     contacts_desc: "Kontaktlar",
     doors: "Eshiklar",
     woods: "Yog'ochlar",
@@ -205,6 +227,7 @@ let data = {
     build: "Qurilish mahsulotlari",
   },
   english: {
+    dropbtn: "ENG",
     lang1: "ENG",
     lang2: "RUS",
     lang3: "UZB",
@@ -263,11 +286,10 @@ let data = {
     pages__link4: "Services",
     pages__link5: "News",
     service__desc: "Services",
-    service__link1: "Student Visa",
-    service__link2: "Immigration",
-    service__link3: "Spouse visa",
-    service__link4: "Visitor visa",
-    service__link5: "Short term visa",
+    service__link1: "Service Center",
+    service__link2: "Логистика",
+    service__link3: "Warranty",
+    service__link4: "Installation",
     contacts_desc: "Contacts",
     doors: "Doors",
     woods: "Woods",
@@ -277,6 +299,7 @@ let data = {
     build: "Building Materials",
   },
   russian: {
+    dropbtn: "РУС",
     lang1: "АНГ",
     lang2: "РУС",
     lang3: "УЗБ",
@@ -337,11 +360,10 @@ let data = {
     pages__link4: "Услуги",
     pages__link5: "Новости",
     service__desc: "Услуги",
-    service__link1: "Студенческая виза",
-    service__link2: "Иммиграция",
-    service__link3: "Супружеская виза",
-    service__link4: "Гостевая виза",
-    service__link5: "Kpaткocpoчнaя виза",
+    service__link1: "Сервисный центр",
+    service__link2: "Логистика",
+    service__link3: "Гарантия",
+    service__link4: "Установить",
     contacts_desc: "Контакты",
     doors: "Двери",
     woods: "Дрова",

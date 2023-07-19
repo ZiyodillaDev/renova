@@ -1,7 +1,7 @@
 .buy {
   color: black;
   font-weight: 700;
-  border: 1px solid #ec6608;
+  border: 1px solid #f09312;
   padding: 10px 30px;
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
@@ -12,7 +12,7 @@
   width: 100%;
   text-align: center;
   &:hover {
-    background: #ec6608;
+    background: #f09312;
     color: white;
   }
   &:disabled {
@@ -70,8 +70,8 @@ body {
 
 .form_label {
   position: absolute;
-  left: 1em;
-  top: 1em;
+  left: 0.7em;
+  top: 0.7em;
   padding: 0 0.25em;
   background-color: #fff;
   color: #80868b;
@@ -124,18 +124,29 @@ body {
   }
 }
 
-.productBtn{
-transition: all 0.5s ease-in-out !important;
-}
-
-.newImg{
-    width: 100px;
-    height: 100px;
-
+.productBtn {
+  transition: all 0.5s ease-in-out !important;
 }
 
 
-.buyList{
+.newImg {
+  width: 100px;
+  height: 100px;
+}
+
+.newText {
+  text-align: center;
+}
+
+.newList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-25%, 0%) !important;
+}
+
+.buyList {
   display: flex;
   flex-direction: column;
   align-items: center;

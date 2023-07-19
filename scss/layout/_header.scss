@@ -11,16 +11,6 @@ header {
   margin-top: -15px;
 }
 
-.header-top {
-  background: #000;
-  position: fixed;
-  top: 0;
-  display: block;
-  width: 100%;
-  z-index: 999;
-  transition: all 0.4s ease !important;
-}
-
 .logo {
   width: 200px;
   height: 30px;
@@ -34,7 +24,7 @@ header {
   align-items: center;
 }
 
-.menu > a ,.link5{
+.menu > a {
   color: #fff !important;
   text-decoration: none;
   margin-right: 50px;
@@ -54,13 +44,13 @@ header {
     left: 0;
     height: 3px;
     width: 100%;
-    background-color: #ec6608 !important;
+    background-color: #f09312 !important;
     transform-origin: right top;
     transform: scale(0, 1);
     transition: color 0.1s, transform 0.2s ease-out;
   }
   &:active::before {
-    background-color: #ec6608 !important;
+    background-color: #f09312 !important;
   }
   &:hover::before,
   &:focus::before {
@@ -72,7 +62,7 @@ header {
 /* Language */
 
 .langs .active:after {
-  border-bottom: 3px solid #ec6608 !important;
+  border-bottom: 3px solid #f09312 !important;
   width: 100% !important;
 }
 
@@ -83,8 +73,9 @@ header {
   width: 100%;
   height: 100vh;
   background: #333;
-  clip-path: circle(0px at calc(100% - 45px) 45px);
+  clip-path: circle(0px at calc(100% - 100%) 0px);
   transition: 0.3s all ease-in-out;
+  z-index: 9 !important;
 }
 
 .header-container ul li a {
@@ -133,9 +124,9 @@ header {
   width: 50px;
   height: 50px;
   position: absolute;
-  right: 20px;
-  top: 23px;
-  z-index: 1;
+  left: 20px;
+  top: 27px;
+  z-index: 1000 !important;
   text-align: center;
   line-height: 2.6em;
   background: transparent;
@@ -148,7 +139,6 @@ header {
 
 .menu_btn:hover {
   transition: 0.3s all ease;
-  transform: scale(1.2);
 }
 
 #active:checked ~ .header-container {
@@ -183,6 +173,15 @@ header {
   nav {
     display: none;
   }
+  .logoDiv {
+    margin: 0 auto !important;
+  }
+  .sec {
+    display: block !important;
+  }
+  .logoDiv {
+    transform: translate(10%, 0%);
+  }
 }
 
 .all_heads {
@@ -206,18 +205,6 @@ header {
   margin-top: 10px;
 }
 
-.dropdown-content2 {
-  display: none;
-  position: fixed;
-  background-color: #333333b3;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
-  z-index: 1;
-  margin-left: -55px;
-  margin-top: 15px;
-  color: #fff;
-}
 .dropdown-content {
   display: none;
   position: absolute;
@@ -225,21 +212,19 @@ header {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
-  z-index: 1;
   margin-left: -75px;
   margin-top: 25px;
   color: #fff;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+// .dropdown:hover .dropdown-content {
+//   display: block;
+// }
 
-
-.lang{
+.lang {
   color: white;
   background: transparent;
-  border: none  ;
+  border: none;
   font-size: 18px;
 }
 
@@ -249,4 +234,60 @@ header {
   border: none;
   font-size: 17px;
   font-weight: 600;
+}
+
+// lang
+
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 90px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  top: 20px;
+  right: -15px;
+}
+
+.dropdown-content a {
+  color: black;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding: 12px 0;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropbtn {
+  background-image: url(../../images/down-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 14px 14px;
+}
+
+.activeDropDownImg {
+  background-image: url(../../images/up-arrow.svg) !important;
+}
+
+.show {
+  display: block;
+}
+
+@media screen and (max-width: 1100px) {
+  .menu a {
+    margin: 0 !important;
+  }
 }

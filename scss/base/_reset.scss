@@ -6,23 +6,41 @@
 .container {
   max-width: 1440px;
   width: 100%;
-  margin: 0 auto ; 
-  padding: 0 40px ;
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-a{
+a {
   text-decoration: none;
   color: white;
 }
 
-li{
+li {
   list-style: none;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0 10px !important;
+  }
+  .menu_btn {
+    left: -5px !important;
+  }
+  .logoDiv {
+    transform: translate(10%, 0%);
+  }
+}
+

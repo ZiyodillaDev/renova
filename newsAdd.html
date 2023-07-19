@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/main.css">
-
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
 
     <style>
         body {
@@ -34,6 +37,7 @@
 </head>
 
 <body>
+
 
     <div>
         <!-- <div class=" col-3"> -->
@@ -65,7 +69,8 @@
                                 <ul class="mobile-menu">
                                     <li><a class="link1" id="home" href="index.html#">Главная</a></li>
                                     <li><a href="index.html#about_section" class="link2" id="about">О компании</a></li>
-                                    <li><a href="index.html#product_section" class="link3" id="service">Продукты</a></li>
+                                    <li><a href="index.html#product_section" class="link3" id="service">Продукты</a>
+                                    </li>
                                     <li><a href="index.html#service_section" class="link4" id="work">Услуги</a></li>
                                     <li><a href="index.html#news_section" class="link5" id="contact">Новости</a></li>
                                     <li><a href="./index.html"><img class="user w-75" src="./images/home.png"
@@ -90,7 +95,7 @@
                                 <input type="file" name="img" class="js-file form-control" onchange="uploadPrEdit()">
                             </div>
                             <div class="mb-3">
-                                <input type="text" name="name" class="js-name form-control" placeholder="Hазвание">
+                                <input type="text" name="name" class="js-name form-control" placeholder="Hазвание" >
                             </div>
 
 
@@ -112,7 +117,8 @@
                             <div class="mb-3">
                                 <input class="js-price form-control" type="number" placeholder="Цена">
                             </div>
-                            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Добавить продукт</button>
+                            <button type="submit" data-bs-dismiss="modal" class="btn btn sendBtn text-white">Добавить
+                                продукт</button>
                         </form>
                     </div>
 
@@ -124,10 +130,11 @@
                     <div class="modal_head">
                         <button class="js_close js_close-news" id="news_edit"> X </button>
                     </div>
-                    <h3>Edit modal</h3>
+                    <h3>Изменить Новость</h3>
                     <div class="modal-body">
                         <form class="newsForm_edit">
                             <div class="mb-3">
+
                                 <input type="file" name="img" class="post_img_edit form-control" onchange="upload2()">
                             </div>
                             <div class="mb-3">
@@ -140,7 +147,8 @@
                             </div>
 
 
-                            <button type="submit" data-bs-dismiss="modal5" class="btn btn-primary">Добавить новость</button>
+                            <button type="submit" data-bs-dismiss="modal5" class="btn sendBtn text-white">Добавить
+                                новость</button>
                         </form>
                     </div>
 
@@ -166,126 +174,114 @@
 
 
             <div class="d-flex container align-items-start ">
-                <div class="nav flex-column nav-pills me-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <button class="nav-link active my-3" id="v-pills-home-tab" data-bs-toggle="pill"
-                        data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
-                        aria-selected="true">Продукты</button>
-                    <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
-                        data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
-                        aria-selected="false">Новости</button>
+                <div class="nav flex-column me-4 tabBtns">
+                    <button class="nav-link  my-3 productTab">Продукты</button>
+                    <button class="nav-link activeTab newsTab">Новости</button>
                 </div>
-                <div class="tab-content " id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                        aria-labelledby="v-pills-home-tab" tabindex="0">
-                        <div class="  index_card">
-                            <button type="button" class="btn  modalbtn btn-primary ms-2  mt-3" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">Добавить продукт +</button>
-                            <div class="modal fade mt-5 pt-5" id="exampleModal" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content js-form">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Добавить продукт</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form class="add_productForm">
-                                                <div class="mb-3">
-                                                    <input type="file" name="img" class="js-filepr form-control"
-                                                        onchange="uploadpr()">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <input type="text" name="name" class="js-namepr form-control"
-                                                        placeholder="Hазвание">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <!-- <input type="text" name="title" class="js-descpr form-control"
+                <div class="tab-pane tab1 ">
+                    <div class="  index_card">
+                        <button type="button" class="btn  modalbtn sendBtn text-white ms-2  mt-3" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" data-bs-whatever="@mdo">Добавить продукт +</button>
+                        <div class="modal fade mt-5 pt-5" id="exampleModal" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content js-form">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Добавить продукт</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="add_productForm">
+                                            <div class="mb-3">
+                                                <input type="file" name="img" class="js-filepr form-control"
+                                                    onchange="uploadpr()">
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="text" name="name" class="js-namepr form-control"
+                                                    placeholder="Hазвание">
+                                            </div>
+                                            <div class="mb-3">
+                                                <!-- <input type="text" name="title" class="js-descpr form-control"
                                                         placeholder="Type of Product"> -->
-                                                    <select class="form-select js-descpr"
-                                                        aria-label="Default select example">
-                                                        <option>Двери</option>
-                                                        <option>Дрова</option>
-                                                        <option>Инструменты</option>
-                                                        <option>Обои</option>
-                                                        <option>Трубы</option>
-                                                        <option>Строительные материалы</option>
-                                                    </select>
-                                                </div>
-            
-                                                <div class="mb-3">
-                                                    <input placeholder="Oценка" type="text" name="img"
-                                                        class="js-markpr form-control">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <input class="js-pricepr form-control" type="number"
-                                                        placeholder="Цена">
-                                                </div>
+                                                <select class="form-select js-descpr"
+                                                    aria-label="Default select example">
+                                                    <option>Двери</option>
+                                                    <option>Дрова</option>
+                                                    <option>Инструменты</option>
+                                                    <option>Обои</option>
+                                                    <option>Трубы</option>
+                                                    <option>Строительные материалы</option>
+                                                </select>
+                                            </div>
 
-                                                <button type="submit" data-bs-dismiss="modal"
-                                                    class="btn btn-primary">Добавить продукт</button>
-                                            </form>
-                                        </div>
+                                            <div class="mb-3">
+                                                <input placeholder="Oценка" type="text" name="img"
+                                                    class="js-markpr form-control">
+                                            </div>
+                                            <div class="mb-3">
+                                                <input class="js-pricepr form-control" type="number" placeholder="Цена">
+                                            </div>
 
+                                            <button type="submit" data-bs-dismiss="modal"
+                                                class="btn sendBtn text-white">Добавить продукт</button>
+                                        </form>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex js-list  flex-wrap gap-3">
-
-                        </div>
                     </div>
+                    <div class="d-flex js-list  flex-wrap gap-3">
 
-
-
-                    <div class="tab-pane  fade" id="v-pills-profile" role="tabpanel"
-                        aria-labelledby="v-pills-profile-tab" tabindex="0">
-                        <div class="index_card  ">
-                            <button type="button" class="btn ms-1 modalbtn btn-primary  mt-3" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal1" data-bs-whatever="@mdo">Добавить новость +</button>
-                            <div class="modal fade mt-5 pt-5 newsModal" id="exampleModal1" tabindex="-1"
-                                aria-labelledby="exampleModal1Label" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content js-form">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModal1Label">Добавить новость</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form class="admin_newsForm">
-                                                <div class="mb-3">
-                                                    <input type="file" name="img" class="post_img form-control"
-                                                        onchange="upload()">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <input type="text" name="title" class="post_title form-control"
-                                                        placeholder="Title">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <!-- <input type="text" name="desc" class="form-control js-desc"> -->
-                                                    <textarea class="post_desc form-control"
-                                                        placeholder="Description"></textarea>
-                                                </div>
-
-
-                                
-                                                <button type="submit" data-bs-dismiss="modal1"
-                                                    class="btn btn-primary">Добавить новость</button>
-                                            </form>
-                                        </div>
-                                        <!-- <div class="modal-footer">
-                                </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex js-listNews flex-wrap gap-3">
-
-                        </div>
                     </div>
-
                 </div>
+                <div class="tab-pane tab2 activeTabContent">
+                    <div class="index_card  ">
+                        <button type="button" class="btn ms-1 modalbtn sendBtn text-white  mt-3" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal1" data-bs-whatever="@mdo">Добавить новость +</button>
+                        <div class="modal fade mt-5 pt-5 newsModal" id="exampleModal1" tabindex="-1"
+                            aria-labelledby="exampleModal1Label" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content js-form">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModal1Label">Добавить новость</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="admin_newsForm">
+                                            <div class="mb-3">
+                                                <input type="file" name="img" class="post_img form-control"
+                                                    onchange="upload()">
+                                            </div>
+                                            <div class="mb-3">
+                                                <input type="text" name="title" class="post_title form-control"
+                                                    placeholder="Title">
+                                            </div>
+                                            <div class="mb-3">
+                                                <!-- <input type="text" name="desc" class="form-control js-desc"> -->
+                                                <textarea class="post_desc form-control"
+                                                    placeholder="Description"></textarea>
+                                            </div>
+
+
+
+                                            <button type="submit" data-bs-dismiss="modal1"
+                                                class="btn sendBtn text-white">Добавить новость</button>
+                                        </form>
+                                    </div>
+                                    <!-- <div class="modal-footer">
+                                </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex js-listNews flex-wrap gap-3">
+
+                    </div>
+                </div>
+
             </div>
 
             <!-- <div class="container ms-5 tabs">
@@ -311,11 +307,11 @@
                 <div class="pages">
                     <h3 class="pages__desc">Страницы</h3>
                     <div class="menu">
-                        <a class="pages__link1" href="#">Главная</a>
-                        <a class="pages__link2" href="#about">О компании</a>
-                        <a class="pages__link3" href="#popular">Продукты</a>
-                        <a class="pages__link4" href="#form">Услуги</a>
-                        <a class="pages__link5" href="#form">Новости</a>
+                        <a class="pages__link1" href="index.html">Главная</a>
+                        <a class="pages__link2" href="index.html#about_section">О компании</a>
+                        <a class="pages__link3" href="index.html#product_section">Продукты</a>
+                        <a class="pages__link4" href="index.html#service_section">Услуги</a>
+                        <a class="pages__link5" href="index.html#news_section">Новости</a>
                     </div>
                 </div>
                 <div class="contact">
@@ -347,8 +343,8 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
 
-    <script src="./js/data.js"></script>
-    <script src="./js/admin.js"></script>
+    <script src="./js/productAdd.js "></script>
+    <script src="./js/newsAdd.js "></script>
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 let langs = document.querySelector(".langs");
+let dropbtn = document.querySelectorAll(".dropbtn");
 let link = document.querySelectorAll(".lang");
 let lang1 = document.querySelector(".lang1");
 let lang2 = document.querySelector(".lang2");
@@ -28,13 +29,34 @@ let service__link3 = document.querySelector(".service__link3");
 let service__link4 = document.querySelector(".service__link4");
 let service__link5 = document.querySelector(".service__link5");
 let clickSuccess = document.querySelectorAll(".click-success");
+// lang
+
+const toggleToolbar = document.querySelectorAll(".toggle-toolbar");
+const stickyToolbarContainer = document.querySelector(
+  ".sticky-toolbar-container"
+);
+
+toggleToolbar.forEach(function (element) {
+  element.addEventListener("click", function () {
+    stickyToolbarContainer.classList.toggle("show-toolbar");
+  });
+});
+
+const LangBtns = document.querySelectorAll(".langBtn");
+
+LangBtns.forEach((element) => {
+  element.addEventListener("click", function () {
+    stickyToolbarContainer.classList.remove("show-toolbar");
+  });
+});
 
 link.forEach((el) => {
   el.addEventListener("click", () => {
-    langs.querySelector(".active").classList.remove("active");
-    el.classList.add("active");
 
     let attr = el.getAttribute("language");
+    dropbtn.forEach((element) => {
+      element.textContent = data[attr].dropbtn;
+    });
     lang1.textContent = data[attr].lang1;
     lang2.textContent = data[attr].lang2;
     lang3.textContent = data[attr].lang3;
@@ -72,7 +94,8 @@ let data = {
     uzbek: {
       lang1: "ING",
       lang2: "RUS",
-      lang3: "O'ZB",
+      lang3: "O'Z",
+      dropbtn: "UZB",
       link1: "Asosiy",
       link2: "Haqida",
       link3: "Mahsulotlar",
@@ -103,6 +126,7 @@ let data = {
       lang1: "ENG",
       lang2: "RUS",
       lang3: "UZB",
+      dropbtn: "ENG",
       link1: "Home",
       link2: "About",
       link3: "Products",
@@ -133,6 +157,7 @@ let data = {
       lang1: "АНГ",
       lang2: "РУС",
       lang3: "УЗБ",
+      dropbtn: "РУС",
       link1: "Главная",
       link2: "О компании",
       link3: "Продукты",

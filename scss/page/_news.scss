@@ -24,9 +24,8 @@
 .wrapper {
   max-width: 370px;
   width: 100%;
-  height: auto;
-  max-height: 650px;
-
+  max-height: 700px;
+  min-height: 500px;
   margin: 0 auto;
   background: #e0e0e0;
   border: 1px solid #999999;
@@ -44,11 +43,11 @@
   max-width: 433px;
   height: 326px;
   backdrop-filter: blur(1px);
-img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .card_carousel_body {
@@ -77,13 +76,17 @@ img{
 .carousel_card_heading2 {
   height: 48px;
   margin-bottom: 15px;
-  color: #ec6608 !important;
+  color: #f09312 !important;
 }
 
 .card_bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  right: 35px;
   // padding-bottom: 10px;
   p {
     width: 64px;
@@ -92,7 +95,7 @@ img{
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    color: #ec6608;
+    color: #f09312;
     display: inline-block;
     margin: 0;
   }
@@ -114,7 +117,6 @@ img{
     height: auto;
   }
 }
-
 
 @media screen and (max-width: 600px) {
   .wrapper {
@@ -204,11 +206,12 @@ img{
   }
 }
 
-.news_indicator{
-    filter: invert(43%) sepia(75%) saturate(1062%) hue-rotate(354deg) brightness(91%) contrast(103%);
+.news_indicator {
+  filter: invert(43%) sepia(75%) saturate(1062%) hue-rotate(354deg)
+    brightness(91%) contrast(103%);
 }
 
-.mycontainer{
+.mycontainer {
   max-width: 1280px;
   width: 100%;
   padding: 0 20px;
@@ -216,16 +219,15 @@ img{
 }
 
 @media screen and (max-width: 1300px) {
-  .mycontainer{
+  .mycontainer {
     max-width: 1000px;
     width: 100%;
     padding: 0 20px;
     margin: 0 auto;
   }
-
 }
 @media screen and (max-width: 1024px) {
-  .mycontainer{
+  .mycontainer {
     max-width: 900px;
     width: 100%;
     padding: 0 20px;
@@ -238,4 +240,3 @@ img{
     right: -40px;
   }
 }
-
